@@ -1,5 +1,7 @@
 AllCops:
   TargetRubyVersion: 3.4
+  Exclude:
+    - 'test/fixtures/**/*'
 
 Style/Documentation:
   Enabled: false

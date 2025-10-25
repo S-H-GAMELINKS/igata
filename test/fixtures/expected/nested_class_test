@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+class User::ProfileTest < Minitest::Test
+  def test_initialize
+    skip "Not implemented yet"
+  end
+
+  def test_adult?
+    skip "Not implemented yet"
+  end
+
+  def test_greeting
+    skip "Not implemented yet"
+  end
+end
