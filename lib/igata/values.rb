@@ -10,16 +10,24 @@ class Igata
 
     MethodInfo = Data.define(
       :name,          # "initialize"
-      :branches       # Array of BranchInfo (default: [])
+      :branches,      # Array of BranchInfo (default: [])
+      :comparisons    # Array of ComparisonInfo (default: [])
     ) do
-      def initialize(name:, branches: [])
-        super(name: name, branches: branches)
+      def initialize(name:, branches: [], comparisons: [])
+        super(name: name, branches: branches, comparisons: comparisons)
       end
     end
 
     BranchInfo = Data.define(
       :type,          # :if, :unless, :case, :ternary
       :condition      # condition expression as string
+    )
+
+    ComparisonInfo = Data.define(
+      :operator,      # :>=, :<=, :>, :<, :==, :!=
+      :left,          # left side expression
+      :right,         # right side expression
+      :context        # full expression as string (e.g., "age >= 18")
     )
   end
 end

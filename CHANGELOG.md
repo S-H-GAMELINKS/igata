@@ -14,13 +14,24 @@
   - `BranchAnalyzer` extractor: Detects if/unless/case statements in methods
   - `MethodInfo` now includes `branches` field for branch information
   - Minitest template generates branch comments (e.g., `# Branches: if, unless`)
+- Added comparison analysis functionality:
+  - `ComparisonInfo` value object: Stores comparison information (operator, left, right, context)
+  - `ComparisonAnalyzer` extractor: Detects comparison operators (>=, <=, >, <, ==, !=) in methods
+  - `MethodInfo` now includes `comparisons` field for comparison information
+  - Minitest template generates comparison comments (e.g., `# Comparisons: >= (age >= 18)`)
+  - Supports multiple comparisons with AND/OR operators (e.g., `value >= 0 && value <= 150`)
+  - Detects comparisons in various contexts: direct returns, if/unless conditions, nested expressions
+  - Handles different expression types: local variables, instance variables, integers, strings, symbols
 - Added comprehensive unit tests:
-  - Extractor tests: `ConstantPath` (10 tests), `MethodNames` (6 tests), `BranchAnalyzer` (6 tests)
+  - Extractor tests: `ConstantPath` (10 tests), `MethodNames` (6 tests), `BranchAnalyzer` (6 tests), `ComparisonAnalyzer` (6 tests)
   - Formatter tests: `Base` (3 tests), `Minitest` (6 tests)
-  - Total: 31 new unit tests added
+  - Total: 37 new unit tests added
 - Added integration tests for branch analysis:
   - `class_with_branches` test fixture with if/unless/case statements
   - 4 integration tests verifying branch comment generation
+- Added integration tests for comparison analysis:
+  - `class_with_comparisons` test fixture with various comparison operators
+  - 6 integration tests verifying comparison comment generation
 - Added ERB templates (class.erb and method.erb) to generate Minitest test code skeleton
 - Implemented test generation supporting various class/module nesting patterns:
   - Simple classes: `class User`
@@ -59,7 +70,8 @@
   - `Extractors::ConstantPath`: Extracts full constant paths from nested structures
   - `Extractors::MethodNames`: Extracts method information from class nodes
   - `Extractors::BranchAnalyzer`: Analyzes control flow branches in methods
-- `MethodNames` extractor now automatically runs `BranchAnalyzer` for each method
+  - `Extractors::ComparisonAnalyzer`: Analyzes comparison operators in methods
+- `MethodNames` extractor now automatically runs `BranchAnalyzer` and `ComparisonAnalyzer` for each method
 
 ### Fixed
 

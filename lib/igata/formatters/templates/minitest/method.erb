@@ -2,5 +2,8 @@
 <% if branches && !branches.empty? %>
     # Branches: <%= branches.map(&:type).join(", ") %>
 <% end %>
+<% if comparisons && !comparisons.empty? %>
+    # Comparisons: <%= comparisons.map { |c| "#{c.operator} (#{c.context})" }.join(", ") %>
+<% end %>
     skip "Not implemented yet"
   end
