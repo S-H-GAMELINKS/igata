@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+### Added
+
+- Added Kanayago (~> 0.3.0) as runtime dependency to ensure automatic installation
+
+### Fixed
+
+- Fixed LoadError when Kanayago is not manually installed by adding it as gemspec dependency
+
 ## [0.2.0] - 2025-10-26
 
 ### Added
