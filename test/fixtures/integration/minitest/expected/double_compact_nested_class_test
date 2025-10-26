@@ -8,6 +8,7 @@ class App::Model::User::ProfileTest < Minitest::Test
   end
 
   def test_adult?
+    # Comparisons: >= (@age >= 18)
     skip "Not implemented yet"
   end
 

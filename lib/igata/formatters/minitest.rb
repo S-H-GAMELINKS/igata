@@ -23,9 +23,7 @@ class Igata
         @method_infos.map do |method_info|
           method_name = method_info.name
           branches = method_info.branches
-          # TODO: Support Comparison analysis
-          # - Add Comparison analysis for expressions like: @age >= 18
-          # - Template selection will be based on analysis results, not method name patterns
+          comparisons = method_info.comparisons
           ERB.new(File.read(template_path("method")), trim_mode: "<>").result(binding)
         end
       end

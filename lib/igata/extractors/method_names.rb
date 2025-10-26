@@ -22,7 +22,10 @@ class Igata
           # Extract branch information for each method
           branches = BranchAnalyzer.extract(node)
 
-          Values::MethodInfo.new(name: node.mid.to_s, branches: branches)
+          # Extract comparison information for each method
+          comparisons = ComparisonAnalyzer.extract(node)
+
+          Values::MethodInfo.new(name: node.mid.to_s, branches: branches, comparisons: comparisons)
         end
       end
     end

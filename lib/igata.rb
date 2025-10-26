@@ -9,6 +9,7 @@ require_relative "igata/values"
 require_relative "igata/extractors/constant_path"
 require_relative "igata/extractors/method_names"
 require_relative "igata/extractors/branch_analyzer"
+require_relative "igata/extractors/comparison_analyzer"
 require_relative "igata/formatters/minitest"
 
 class Igata
