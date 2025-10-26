@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.1] - 2025-10-26
+
 ### Added
 
 - Added Kanayago (~> 0.3.0) as runtime dependency to ensure automatic installation
