@@ -5,10 +5,18 @@
 - Introduced Formatter architecture for supporting multiple test frameworks:
   - `Formatters::Base`: Abstract base class for all formatters
   - `Formatters::Minitest`: Minitest-specific formatter implementation
+  - `Formatters::RSpec`: RSpec-specific formatter implementation
   - `MethodNotOverriddenError`: Custom error for abstract method violations
   - Separated `Igata::Error` into dedicated file
 - Added CLI formatter option:
-  - `-f, --formatter FORMATTER`: Specify test framework formatter (currently: minitest)
+  - `-f, --formatter FORMATTER`: Specify test framework formatter (minitest or rspec)
+- Added RSpec support:
+  - RSpec formatter generates `describe` and `it` blocks
+  - RSpec templates (class.erb and method.erb) for RSpec-style test generation
+  - Supports all branch and comparison analysis features in RSpec format
+  - Branch and comparison comments in RSpec tests (e.g., `# Branches: if (value > 0)`)
+  - Unit tests for RSpec formatter (6 tests)
+  - Integration tests for RSpec formatter (3 tests)
 - Added branch analysis functionality:
   - `BranchInfo` value object: Stores branch information (type, condition)
   - `BranchAnalyzer` extractor: Detects if/unless/case statements in methods

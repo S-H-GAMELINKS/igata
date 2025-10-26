@@ -11,6 +11,7 @@ require_relative "igata/extractors/method_names"
 require_relative "igata/extractors/branch_analyzer"
 require_relative "igata/extractors/comparison_analyzer"
 require_relative "igata/formatters/minitest"
+require_relative "igata/formatters/rspec"
 
 class Igata
   def initialize(source, formatter: :minitest)
@@ -34,6 +35,8 @@ class Igata
     case formatter
     when :minitest
       Formatters::Minitest
+    when :rspec
+      Formatters::RSpec
     when Class
       formatter
     else
