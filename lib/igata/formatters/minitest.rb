@@ -22,9 +22,9 @@ class Igata
       def generate_methods
         @method_infos.map do |method_info|
           method_name = method_info.name
-          # TODO: Support Comparison and Branch analysis
+          branches = method_info.branches
+          # TODO: Support Comparison analysis
           # - Add Comparison analysis for expressions like: @age >= 18
-          # - Add Branch analysis for if/unless/case statements
           # - Template selection will be based on analysis results, not method name patterns
           ERB.new(File.read(template_path("method")), trim_mode: "<>").result(binding)
         end

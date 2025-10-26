@@ -9,7 +9,17 @@ class Igata
     )
 
     MethodInfo = Data.define(
-      :name           # "initialize"
+      :name,          # "initialize"
+      :branches       # Array of BranchInfo (default: [])
+    ) do
+      def initialize(name:, branches: [])
+        super(name: name, branches: branches)
+      end
+    end
+
+    BranchInfo = Data.define(
+      :type,          # :if, :unless, :case, :ternary
+      :condition      # condition expression as string
     )
   end
 end
