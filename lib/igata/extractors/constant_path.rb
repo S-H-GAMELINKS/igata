@@ -11,7 +11,7 @@ class Igata
         @ast = ast
       end
 
-      def extract
+      def extract # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
         if compact_nested? && nested?
           # Mixed pattern: class App::User; class Profile; end; end
           # Inner class may also be compact nested: class App::Model; class User::Profile; end
@@ -68,7 +68,7 @@ class Igata
         build_constant_path(@ast.body.cpath)
       end
 
-      def build_constant_path(node)
+      def build_constant_path(node) # rubocop:disable Metrics/MethodLength
         case node
         when Kanayago::Colon2Node
           if node.head.nil?
