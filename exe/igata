@@ -4,10 +4,14 @@
 require "igata"
 require "optparse"
 
-options = {}
+options = { formatter: :minitest }
 OptionParser.new do |opts|
   opts.banner = "Usage: igata [options] [file]"
   opts.version = Igata::VERSION
+
+  opts.on("-f", "--formatter FORMATTER", [:minitest], "Test framework formatter (minitest)") do |formatter|
+    options[:formatter] = formatter
+  end
 
   opts.on("-o", "--output FILE", "Write output to FILE instead of stdout") do |file|
     options[:output] = file
@@ -32,7 +36,7 @@ source = if ARGV.empty?
          end
 
 # Generate test code
-igata = Igata.new(source)
+igata = Igata.new(source, formatter: options[:formatter])
 output = igata.generate
 
 # Write output to file or stdout
