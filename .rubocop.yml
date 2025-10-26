@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 3.4
   Exclude:
     - 'test/fixtures/**/*'
+    - 'vendor/**/*'
 
 Style/Documentation:
   Enabled: false
