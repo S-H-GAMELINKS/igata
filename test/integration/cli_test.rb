@@ -6,8 +6,8 @@ require "tempfile"
 
 class CliTest < Minitest::Test
   def setup
-    @cli_path = File.expand_path("../exe/igata", __dir__)
-    @fixture_path = File.expand_path("fixtures/sources/basic_class.rb", __dir__)
+    @cli_path = File.expand_path("../../exe/igata", __dir__)
+    @fixture_path = File.expand_path("../fixtures/integration/sources/basic_class.rb", __dir__)
   end
 
   def test_file_argument_execution
