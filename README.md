@@ -2,6 +2,8 @@
 
 Generate test code from AST node produces by Ruby's Parser
 
+**[📚 Quick Start Guide](QUICKSTART.md)** | [Full Documentation](#usage) | [Changelog](CHANGELOG.md)
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
