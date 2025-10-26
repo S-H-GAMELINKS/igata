@@ -5,8 +5,8 @@ require "test_helper"
 class Igata
   class DeepNestedClassTest < Minitest::Test
     def test_generate_deep_nested_class
-      source = File.read("test/fixtures/sources/deep_nested_class.rb")
-      expected = File.read("test/fixtures/expected/deep_nested_class_test")
+      source = File.read("test/fixtures/integration/sources/deep_nested_class.rb")
+      expected = File.read("test/fixtures/integration/expected/deep_nested_class_test")
 
       result = Igata.new(source).generate
 

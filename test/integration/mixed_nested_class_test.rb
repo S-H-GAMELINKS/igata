@@ -5,8 +5,8 @@ require "test_helper"
 class Igata
   class MixedNestedClassTest < Minitest::Test
     def test_generate_mixed_nested_class
-      source = File.read("test/fixtures/sources/mixed_nested_class.rb")
-      expected = File.read("test/fixtures/expected/mixed_nested_class_test")
+      source = File.read("test/fixtures/integration/sources/mixed_nested_class.rb")
+      expected = File.read("test/fixtures/integration/expected/mixed_nested_class_test")
 
       result = Igata.new(source).generate
 
