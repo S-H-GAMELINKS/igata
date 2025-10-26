@@ -4,17 +4,18 @@ require "test_helper"
 
 class CalculatorTest < Minitest::Test
   def test_check
-    # Branches: if
+    # Branches: if (value > 0)
+    # Comparisons: > (value > 0)
     skip "Not implemented yet"
   end
 
   def test_validate
-    # Branches: unless
+    # Branches: unless (user.valid?)
     skip "Not implemented yet"
   end
 
   def test_status
-    # Branches: case
+    # Branches: case (code)
     skip "Not implemented yet"
   end
 end

@@ -1,6 +1,6 @@
   def test_<%= method_name %>
 <% if branches && !branches.empty? %>
-    # Branches: <%= branches.map(&:type).join(", ") %>
+    # Branches: <%= branches.map { |b| b.condition ? "#{b.type} (#{b.condition})" : b.type.to_s }.join(", ") %>
 <% end %>
 <% if comparisons && !comparisons.empty? %>
     # Comparisons: <%= comparisons.map { |c| "#{c.operator} (#{c.context})" }.join(", ") %>
