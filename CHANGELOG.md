@@ -13,7 +13,9 @@
   - `BranchInfo` value object: Stores branch information (type, condition)
   - `BranchAnalyzer` extractor: Detects if/unless/case statements in methods
   - `MethodInfo` now includes `branches` field for branch information
-  - Minitest template generates branch comments (e.g., `# Branches: if, unless`)
+  - Minitest template generates branch comments with condition information (e.g., `# Branches: if (age >= 18), unless (user.valid?)`)
+  - Extracts condition expressions for if/unless/case statements
+  - Handles method calls, comparisons, and variable references in conditions
 - Added comparison analysis functionality:
   - `ComparisonInfo` value object: Stores comparison information (operator, left, right, context)
   - `ComparisonAnalyzer` extractor: Detects comparison operators (>=, <=, >, <, ==, !=) in methods

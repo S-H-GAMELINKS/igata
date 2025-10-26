@@ -66,12 +66,59 @@ class Igata
         end
       end
 
-      def extract_condition(condition_node)
-        return "" unless condition_node
+      def extract_condition(branch_node) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+        return nil unless branch_node
 
-        # For now, return a simple placeholder
-        # In the future, we can implement proper source reconstruction
-        condition_node.class.name.split("::").last.gsub("Node", "").downcase
+        # Extract condition based on branch type
+        condition_node = if branch_node.is_a?(Kanayago::IfStatementNode) || branch_node.is_a?(Kanayago::UnlessStatementNode)
+                           branch_node.cond if branch_node.respond_to?(:cond)
+                         elsif branch_node.is_a?(Kanayago::CaseNode)
+                           branch_node.head if branch_node.respond_to?(:head)
+                         end
+
+        return nil unless condition_node
+
+        extract_expression(condition_node)
+      end
+
+      def extract_expression(node) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+        return "" unless node
+
+        # Handle different node types for source reconstruction
+        if node.is_a?(Kanayago::LocalVariableNode)
+          node.vid.to_s
+        elsif node.is_a?(Kanayago::InstanceVariableNode)
+          node.vid.to_s
+        elsif node.is_a?(Kanayago::IntegerNode)
+          node.val.to_s
+        elsif node.is_a?(Kanayago::StringNode)
+          "\"#{node.val}\""
+        elsif node.is_a?(Kanayago::SymbolNode)
+          ":#{node.ptr}"
+        elsif node.is_a?(Kanayago::OperatorCallNode)
+          # Handle comparison operators like age >= 18
+          left = extract_expression(node.recv)
+          operator = node.mid.to_s
+          right = extract_expression(node.args&.val&.first)
+          "#{left} #{operator} #{right}"
+        elsif node.is_a?(Kanayago::CallNode)
+          # Handle method calls like user.valid?
+          if node.respond_to?(:recv) && node.recv
+            receiver = extract_expression(node.recv)
+            method_name = node.mid.to_s
+            "#{receiver}.#{method_name}"
+          elsif node.respond_to?(:mid)
+            node.mid.to_s
+          else
+            "call"
+          end
+        elsif node.respond_to?(:mid)
+          node.mid.to_s
+        elsif node.is_a?(Integer) || node.is_a?(String)
+          node.to_s
+        else
+          node.class.name.split("::").last.gsub("Node", "").downcase
+        end
       end
     end
   end
