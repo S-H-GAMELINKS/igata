@@ -19,7 +19,10 @@ class Igata
         class_body.filter_map do |node|
           next unless node.is_a?(Kanayago::DefinitionNode)
 
-          Values::MethodInfo.new(name: node.mid.to_s)
+          # Extract branch information for each method
+          branches = BranchAnalyzer.extract(node)
+
+          Values::MethodInfo.new(name: node.mid.to_s, branches: branches)
         end
       end
     end

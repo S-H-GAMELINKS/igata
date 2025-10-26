@@ -9,10 +9,18 @@
   - Separated `Igata::Error` into dedicated file
 - Added CLI formatter option:
   - `-f, --formatter FORMATTER`: Specify test framework formatter (currently: minitest)
+- Added branch analysis functionality:
+  - `BranchInfo` value object: Stores branch information (type, condition)
+  - `BranchAnalyzer` extractor: Detects if/unless/case statements in methods
+  - `MethodInfo` now includes `branches` field for branch information
+  - Minitest template generates branch comments (e.g., `# Branches: if, unless`)
 - Added comprehensive unit tests:
-  - Extractor tests: `ConstantPath` (10 tests), `MethodNames` (6 tests)
+  - Extractor tests: `ConstantPath` (10 tests), `MethodNames` (6 tests), `BranchAnalyzer` (6 tests)
   - Formatter tests: `Base` (3 tests), `Minitest` (6 tests)
-  - Total: 25 new unit tests added
+  - Total: 31 new unit tests added
+- Added integration tests for branch analysis:
+  - `class_with_branches` test fixture with if/unless/case statements
+  - 4 integration tests verifying branch comment generation
 - Added ERB templates (class.erb and method.erb) to generate Minitest test code skeleton
 - Implemented test generation supporting various class/module nesting patterns:
   - Simple classes: `class User`
@@ -37,18 +45,21 @@
 
 - Reorganized project structure for multi-formatter support:
   - Moved templates to `lib/igata/formatters/templates/minitest/`
-  - Reorganized fixtures to `test/fixtures/formatters/minitest/integration/`
+  - Reorganized fixtures to `test/fixtures/integration/minitest/`
+  - Test type (integration/unit) is now the primary hierarchy, formatter (minitest) is secondary
   - Separated tests into `test/integration/` and `test/unit/`
 - Refactored code generation to use Formatter pattern:
   - `Igata` class delegates to formatter for code generation
   - Accepts `formatter:` parameter (default: `:minitest`)
   - Supports custom formatter classes
 - Refactored AST analysis logic into Extractor pattern for better separation of concerns
-- Introduced Value Objects (`ConstantPath`, `MethodInfo`) using `Data.define` for immutable data structures
+- Introduced Value Objects (`ConstantPath`, `MethodInfo`, `BranchInfo`) using `Data.define` for immutable data structures
 - Implemented recursive traversal for deeply nested class/module definitions
 - AST extraction is now handled by specialized extractors:
   - `Extractors::ConstantPath`: Extracts full constant paths from nested structures
   - `Extractors::MethodNames`: Extracts method information from class nodes
+  - `Extractors::BranchAnalyzer`: Analyzes control flow branches in methods
+- `MethodNames` extractor now automatically runs `BranchAnalyzer` for each method
 
 ### Fixed
 
