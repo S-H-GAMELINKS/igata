@@ -2,3 +2,42 @@
 # frozen_string_literal: true
 
 require "igata"
+require "optparse"
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: igata [options] [file]"
+  opts.version = Igata::VERSION
+
+  opts.on("-o", "--output FILE", "Write output to FILE instead of stdout") do |file|
+    options[:output] = file
+  end
+
+  opts.on("-h", "--help", "Show this help message") do
+    puts opts
+    exit
+  end
+
+  opts.on("-v", "--version", "Show version") do
+    puts Igata::VERSION
+    exit
+  end
+end.parse!
+
+# Read input from file or stdin
+source = if ARGV.empty?
+           $stdin.read
+         else
+           File.read(ARGV[0])
+         end
+
+# Generate test code
+igata = Igata.new(source)
+output = igata.generate
+
+# Write output to file or stdout
+if options[:output]
+  File.write(options[:output], output)
+else
+  puts output
+end
