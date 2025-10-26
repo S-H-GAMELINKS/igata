@@ -101,7 +101,7 @@ class CliTest < Minitest::Test
 
     assert_equal 0, status.exitstatus
     assert_empty stderr
-    assert_equal "0.1.0\n", stdout
+    assert_equal "0.2.0\n", stdout
   end
 
   def test_short_help_option
@@ -117,6 +117,6 @@ class CliTest < Minitest::Test
 
     assert_equal 0, status.exitstatus
     assert_empty stderr
-    assert_equal "0.1.0\n", stdout
+    assert_equal "0.2.0\n", stdout
   end
 end

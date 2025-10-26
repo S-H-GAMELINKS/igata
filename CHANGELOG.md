@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.0] - 2025-10-26
+
 ### Added
 
 - Introduced Formatter architecture for supporting multiple test frameworks:
