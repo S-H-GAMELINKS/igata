@@ -5,8 +5,8 @@ require "test_helper"
 class Igata
   class DoubleCompactNestedClassTest < Minitest::Test
     def test_generate_double_compact_nested_class
-      source = File.read("test/fixtures/integration/sources/double_compact_nested_class.rb")
-      expected = File.read("test/fixtures/integration/expected/double_compact_nested_class_test")
+      source = File.read("test/fixtures/formatters/minitest/integration/sources/double_compact_nested_class.rb")
+      expected = File.read("test/fixtures/formatters/minitest/integration/expected/double_compact_nested_class_test")
 
       result = Igata.new(source).generate
 

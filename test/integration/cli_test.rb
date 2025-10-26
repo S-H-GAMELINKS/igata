@@ -7,7 +7,7 @@ require "tempfile"
 class CliTest < Minitest::Test
   def setup
     @cli_path = File.expand_path("../../exe/igata", __dir__)
-    @fixture_path = File.expand_path("../fixtures/integration/sources/basic_class.rb", __dir__)
+    @fixture_path = File.expand_path("../fixtures/formatters/minitest/integration/sources/basic_class.rb", __dir__)
   end
 
   def test_file_argument_execution
@@ -47,12 +47,31 @@ class CliTest < Minitest::Test
     end
   end
 
+  def test_formatter_option
+    stdout, stderr, status = Open3.capture3("bundle", "exec", @cli_path, @fixture_path, "-f", "minitest")
+
+    assert_equal 0, status.exitstatus
+    assert_empty stderr
+    assert_includes stdout, "class UserTest < Minitest::Test"
+    assert_includes stdout, "def test_initialize"
+  end
+
+  def test_long_formatter_option
+    stdout, stderr, status = Open3.capture3("bundle", "exec", @cli_path, @fixture_path, "--formatter", "minitest")
+
+    assert_equal 0, status.exitstatus
+    assert_empty stderr
+    assert_includes stdout, "class UserTest < Minitest::Test"
+    assert_includes stdout, "def test_initialize"
+  end
+
   def test_help_option
     stdout, stderr, status = Open3.capture3("bundle", "exec", @cli_path, "--help")
 
     assert_equal 0, status.exitstatus
     assert_empty stderr
     assert_includes stdout, "Usage: igata [options] [file]"
+    assert_includes stdout, "-f, --formatter FORMATTER"
     assert_includes stdout, "-o, --output FILE"
     assert_includes stdout, "-h, --help"
     assert_includes stdout, "-v, --version"

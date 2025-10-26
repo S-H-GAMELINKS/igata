@@ -4,31 +4,40 @@ require "kanayago"
 require "erb"
 
 require_relative "igata/version"
+require_relative "igata/error"
 require_relative "igata/values"
 require_relative "igata/extractors/constant_path"
 require_relative "igata/extractors/method_names"
+require_relative "igata/formatters/minitest"
 
 class Igata
-  class Error < StandardError; end
-
-  def initialize(source)
+  def initialize(source, formatter: :minitest)
     @source = source
     @ast = Kanayago.parse(source)
+    @formatter = formatter
   end
 
   def generate
     constant_info = Extractors::ConstantPath.extract(@ast)
-    class_name = constant_info.path
-
     target_node = find_target_class_node(constant_info)
     method_infos = Extractors::MethodNames.extract(target_node)
-    methods = generate_methods(method_infos)
 
-    template = ERB.new(File.read("lib/igata/templates/class.erb"), trim_mode: "<>")
-    template.result(binding)
+    formatter_class = resolve_formatter(@formatter)
+    formatter_class.new(constant_info, method_infos).generate
   end
 
   private
+
+  def resolve_formatter(formatter)
+    case formatter
+    when :minitest
+      Formatters::Minitest
+    when Class
+      formatter
+    else
+      raise Error, "Unknown formatter: #{formatter}"
+    end
+  end
 
   def find_target_class_node(constant_info)
     if constant_info.nested
@@ -55,16 +64,5 @@ class Igata
 
     # Return deeper nesting if exists, otherwise return current child
     deeper_child || direct_child
-  end
-
-  def generate_methods(method_infos)
-    method_infos.map do |method_info|
-      method_name = method_info.name
-      # TODO: Support Comparison and Branch analysis
-      # - Add Comparison analysis for expressions like: @age >= 18
-      # - Add Branch analysis for if/unless/case statements
-      # - Template selection will be based on analysis results, not method name patterns
-      ERB.new(File.read("lib/igata/templates/method.erb"), trim_mode: "<>").result(binding)
-    end
   end
 end
