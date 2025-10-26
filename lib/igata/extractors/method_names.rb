@@ -13,6 +13,9 @@ class Igata
 
       def extract
         class_body = @class_node.body.body
+        # For empty classes, class_body is BeginNode which doesn't have filter_map
+        return [] unless class_body.respond_to?(:filter_map)
+
         class_body.filter_map do |node|
           next unless node.is_a?(Kanayago::DefinitionNode)
 
