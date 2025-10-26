@@ -14,6 +14,13 @@
   - Compact nested modules: `module User::Updator`
 - Generated test files include properly indented method definitions with skip statements
 - Test methods are separated by blank lines for better readability
+- Implemented CLI with OptionParser support
+  - `-o, --output FILE`: Write output to file instead of stdout
+  - `-h, --help`: Display help message
+  - `-v, --version`: Display version information
+  - File argument support: `igata file.rb`
+  - Stdin support: `cat file.rb | igata`
+- Added CLI regression tests (test/cli_test.rb) covering all command-line options and input methods
 
 ### Changed
 
