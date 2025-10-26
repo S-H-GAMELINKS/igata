@@ -87,16 +87,24 @@ class Igata
       end
 
       def nested?
-        @ast.body.body.body.any? { |node| constant_definition_node?(node) }
+        class_body = @ast.body.body.body
+        # For empty classes, class_body is BeginNode which doesn't have any?
+        return false unless class_body.respond_to?(:any?)
+
+        class_body.any? { |node| constant_definition_node?(node) }
       end
 
       def constant_definition_node?(node)
         node.is_a?(Kanayago::ClassNode) || node.is_a?(Kanayago::ModuleNode)
       end
 
-      def build_nested_path(parent_node)
+      def build_nested_path(parent_node) # rubocop:disable Metrics/MethodLength
         # Find direct child class/module under the parent node
-        child_node = parent_node.body.body.find { |node| constant_definition_node?(node) }
+        class_body = parent_node.body.body
+        # For empty classes, class_body is BeginNode which doesn't have find
+        return nil unless class_body.respond_to?(:find)
+
+        child_node = class_body.find { |node| constant_definition_node?(node) }
         return nil unless child_node
 
         # Get child class name (considering compact nesting)
