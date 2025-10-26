@@ -18,8 +18,84 @@ gem install igata
 
 ## Usage
 
+### Basic Usage
+
+Generate Minitest tests (default):
+
 ```bash
 bundle exec igata lib/user.rb > test/test_user.rb
+```
+
+Generate RSpec tests:
+
+```bash
+bundle exec igata lib/user.rb -f rspec > spec/user_spec.rb
+# or
+bundle exec igata lib/user.rb --formatter rspec > spec/user_spec.rb
+```
+
+### Supported Formatters
+
+- `minitest` (default): Generates Minitest-style tests
+- `rspec`: Generates RSpec-style tests
+
+### Example
+
+Given a Ruby class:
+
+```ruby
+class User
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  def adult?
+    @age >= 18
+  end
+end
+```
+
+Minitest output:
+
+```ruby
+# frozen_string_literal: true
+
+require "test_helper"
+
+class UserTest < Minitest::Test
+  def test_initialize
+    skip "Not implemented yet"
+  end
+
+  def test_adult?
+    # Comparisons: >= (@age >= 18)
+    skip "Not implemented yet"
+  end
+end
+```
+
+RSpec output:
+
+```ruby
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe User do
+  describe "#initialize" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#adult?" do
+    # Comparisons: >= (@age >= 18)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end
 ```
 
 ## Development

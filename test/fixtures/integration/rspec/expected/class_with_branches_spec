@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe Calculator do
+  describe "#check" do
+    # Branches: if (value > 0)
+    # Comparisons: > (value > 0)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#validate" do
+    # Branches: unless (user.valid?)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#status" do
+    # Branches: case (code)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

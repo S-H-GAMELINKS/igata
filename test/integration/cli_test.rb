@@ -65,6 +65,25 @@ class CliTest < Minitest::Test
     assert_includes stdout, "def test_initialize"
   end
 
+  def test_rspec_formatter_option
+    stdout, stderr, status = Open3.capture3("bundle", "exec", @cli_path, @fixture_path, "-f", "rspec")
+
+    assert_equal 0, status.exitstatus
+    assert_empty stderr
+    assert_includes stdout, "RSpec.describe User do"
+    assert_includes stdout, "describe \"#initialize\" do"
+    assert_includes stdout, "it \"works correctly\" do"
+  end
+
+  def test_long_rspec_formatter_option
+    stdout, stderr, status = Open3.capture3("bundle", "exec", @cli_path, @fixture_path, "--formatter", "rspec")
+
+    assert_equal 0, status.exitstatus
+    assert_empty stderr
+    assert_includes stdout, "RSpec.describe User do"
+    assert_includes stdout, "describe \"#initialize\" do"
+  end
+
   def test_help_option
     stdout, stderr, status = Open3.capture3("bundle", "exec", @cli_path, "--help")
 

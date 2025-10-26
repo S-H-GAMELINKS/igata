@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe User do
+  describe "#initialize" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#adult?" do
+    # Comparisons: >= (@age >= 18)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#greeting" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

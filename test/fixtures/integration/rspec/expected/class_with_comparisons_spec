@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe Validator do
+  describe "#adult?" do
+    # Comparisons: >= (age >= 18)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#minor?" do
+    # Comparisons: < (age < 18)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#equal_check" do
+    # Comparisons: == (value == 100)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#valid_range?" do
+    # Comparisons: >= (value >= 0), <= (value <= 150)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_status" do
+    # Branches: if (score > 80)
+    # Comparisons: > (score > 80)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end
