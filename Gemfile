@@ -14,4 +14,4 @@ gem "rubocop", "~> 1.21"
 
 gem "debug", "~> 1.11"
 
-gem "kanayago", "~> 0.3.0"
+gem "kanayago", "~> 0.4.0"
