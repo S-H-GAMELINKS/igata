@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Changed
+
+- Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.0 for improved method parameter information support
+
 ## [0.2.1] - 2025-10-26
 
 ### Added
