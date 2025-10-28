@@ -4,6 +4,12 @@
 
 - Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.0 for improved method parameter information support
 
+### Fixed
+
+- Fixed StringNode value extraction to use `ptr` instead of `val` in `BranchAnalyzer` and `ComparisonAnalyzer`
+  - Kanayago 0.4.0 changed the API: string values are now stored in `ptr` field instead of `val`
+  - Added integration tests for string literal comparisons and branches to prevent regression
+
 ## [0.2.1] - 2025-10-26
 
 ### Added

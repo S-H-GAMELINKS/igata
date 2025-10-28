@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+class RoleCheckerTest < Minitest::Test
+  def test_initialize
+    skip "Not implemented yet"
+  end
+
+  def test_admin_action
+    # Branches: if (@role == "admin")
+    # Comparisons: == (@role == "admin")
+    skip "Not implemented yet"
+  end
+
+  def test_guest_message
+    # Branches: unless (@role == "guest")
+    # Comparisons: == (@role == "guest")
+    skip "Not implemented yet"
+  end
+
+  def test_role_name
+    # Branches: case (@role)
+    skip "Not implemented yet"
+  end
+end
