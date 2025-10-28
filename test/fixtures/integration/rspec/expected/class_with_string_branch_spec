@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe RoleChecker do
+  describe "#initialize" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#admin_action" do
+    # Branches: if (@role == "admin")
+    # Comparisons: == (@role == "admin")
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#guest_message" do
+    # Branches: unless (@role == "guest")
+    # Comparisons: == (@role == "guest")
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#role_name" do
+    # Branches: case (@role)
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

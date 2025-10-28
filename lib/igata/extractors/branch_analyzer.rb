@@ -92,7 +92,7 @@ class Igata
         elsif node.is_a?(Kanayago::IntegerNode)
           node.val.to_s
         elsif node.is_a?(Kanayago::StringNode)
-          "\"#{node.val}\""
+          "\"#{node.ptr}\""
         elsif node.is_a?(Kanayago::SymbolNode)
           ":#{node.ptr}"
         elsif node.is_a?(Kanayago::OperatorCallNode)

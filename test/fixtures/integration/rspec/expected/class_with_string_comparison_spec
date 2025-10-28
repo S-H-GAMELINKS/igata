@@ -1,0 +1,32 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe StatusChecker do
+  describe "#initialize" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#active?" do
+    # Comparisons: == (@status == "active")
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#pending?" do
+    # Comparisons: == (@status == "pending")
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_type" do
+    # Comparisons: != (type != "invalid")
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end
