@@ -6,6 +6,15 @@
 
 ### Fixed
 
+- Fixed BlockNode and BeginNode handling for real-world Ruby code
+  - Fixed BlockNode handling: When `require` statements or constants appear before class definitions, the AST creates a BlockNode wrapper
+    - Added `find_class_node` method in `Extractors::ConstantPath` to search for ClassNode within BlockNode
+    - Example: `backup_service.rb` with `require 'zip'` at the top
+  - Fixed BeginNode handling: Empty classes or classes with special structures create BeginNode that lack the `find` method
+    - Added `respond_to?` checks in `find_deepest_class_node` to safely handle these cases
+    - Returns `nil` for BeginNode structures
+  - Added test cases for both scenarios (`class_with_require` and `class_with_no_methods`) to prevent regression
+  - Verified with all 69 Mastodon service classes (100% success rate)
 - Fixed StringNode value extraction to use `ptr` instead of `val` in `BranchAnalyzer` and `ComparisonAnalyzer`
   - Kanayago 0.4.0 changed the API: string values are now stored in `ptr` field instead of `val`
   - Added integration tests for string literal comparisons and branches to prevent regression
