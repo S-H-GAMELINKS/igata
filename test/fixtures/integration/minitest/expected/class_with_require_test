@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+class FileProcessorTest < Minitest::Test
+  def test_process
+    skip "Not implemented yet"
+  end
+
+  def test_validate_file
+    # Branches: unless (file.exist?)
+    skip "Not implemented yet"
+  end
+
+  def test_compress
+    skip "Not implemented yet"
+  end
+end

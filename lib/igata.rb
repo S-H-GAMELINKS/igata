@@ -45,23 +45,43 @@ class Igata
   end
 
   def find_target_class_node(constant_info)
+    # First, find the actual ClassNode if @ast.body is a BlockNode
+    root_class_node = find_root_class_node(@ast.body)
+
     if constant_info.nested
       # When nested is true, recursively find the deepest (innermost) class
       # - class User; class Profile; end; end
       # - class App::User; class Profile; end; end (mixed pattern)
       # - class App::Model; class Admin::User; class Profile; end; end; end (3+ levels)
-      find_deepest_class_node(@ast.body)
+      find_deepest_class_node(root_class_node)
     else
-      # When nested is false, @ast.body itself is the target
+      # When nested is false, root_class_node itself is the target
       # - class User
       # - class User::Profile
-      @ast.body
+      root_class_node
     end
   end
 
-  def find_deepest_class_node(parent_node)
+  def find_root_class_node(node)
+    if node.is_a?(Kanayago::ClassNode) || node.is_a?(Kanayago::ModuleNode)
+      node
+    elsif node.is_a?(Kanayago::BlockNode) && node.respond_to?(:find)
+      node.find { |n| n.is_a?(Kanayago::ClassNode) || n.is_a?(Kanayago::ModuleNode) }
+    else
+      node
+    end
+  end
+
+  def find_deepest_class_node(parent_node) # rubocop:disable Metrics/CyclomaticComplexity
     # Find direct child class/module under the current node
-    direct_child = parent_node.body.body.find { |node| node.is_a?(Kanayago::ClassNode) || node.is_a?(Kanayago::ModuleNode) }
+    return nil unless parent_node.respond_to?(:body)
+    return nil unless parent_node.body.respond_to?(:body)
+
+    class_body = parent_node.body.body
+    # For empty classes, class_body is BeginNode which doesn't have find
+    return nil unless class_body.respond_to?(:find)
+
+    direct_child = class_body.find { |node| node.is_a?(Kanayago::ClassNode) || node.is_a?(Kanayago::ModuleNode) }
     return nil unless direct_child
 
     # Check if there's deeper nesting in the child node
