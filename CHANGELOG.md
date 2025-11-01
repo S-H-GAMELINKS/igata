@@ -2,7 +2,10 @@
 
 ### Changed
 
-- Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.0 for improved method parameter information support
+- Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.1
+  - For improved method parameter information support
+  - Fix segmentation fault when parsing dynamic symbol and nested modules
+  - see: https://github.com/S-H-GAMELINKS/kanayago/blob/master/CHANGELOG.md#041
 
 ### Fixed
 
