@@ -12,6 +12,8 @@ RSpec.describe RoleChecker do
   describe "#admin_action" do
     # Branches: if (@role == "admin")
     # Comparisons: == (@role == "admin")
+    # Boundary value suggestions:
+    #   @role == "admin": [equal: "admin", not equal: different string]
     it "works correctly" do
       pending "Not implemented yet"
     end
@@ -20,6 +22,8 @@ RSpec.describe RoleChecker do
   describe "#guest_message" do
     # Branches: unless (@role == "guest")
     # Comparisons: == (@role == "guest")
+    # Boundary value suggestions:
+    #   @role == "guest": [equal: "guest", not equal: different string]
     it "works correctly" do
       pending "Not implemented yet"
     end

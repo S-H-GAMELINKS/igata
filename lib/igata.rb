@@ -11,6 +11,7 @@ require_relative "igata/extractors/method_names"
 require_relative "igata/extractors/branch_analyzer"
 require_relative "igata/extractors/comparison_analyzer"
 require_relative "igata/extractors/exception_analyzer"
+require_relative "igata/extractors/boundary_value_generator"
 require_relative "igata/formatters/minitest"
 require_relative "igata/formatters/rspec"
 

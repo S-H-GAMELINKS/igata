@@ -9,11 +9,26 @@
     - Exceptions raised: Shows exception class and message (e.g., `ArgumentError ("Invalid amount")`)
     - Exceptions rescued: Shows caught exception classes (e.g., `PaymentError`)
   - Supports both Minitest and RSpec formats
+- Added boundary value test case suggestions:
+  - `Extractors::BoundaryValueGenerator`: Automatically generates boundary value suggestions from comparison operators
+  - `Values::BoundaryValueInfo`: Value object for boundary value information (comparison, test_values, description)
+  - Generates test comments showing suggested test values for various types:
+    - Numeric values: `age >= 18` → Test with `[17 (below), 18 (boundary), 19 (above)]`
+    - String literals: `name == "Alice"` → Test with `["Alice", "different_string"]`
+    - Nil values: `value == nil` → Test with `[nil, "some_value"]`
+    - Boolean values: `flag == true` → Test with `[true, false]`
+    - Symbol values: `status == :active` → Test with `[":active", ":other_symbol"]`
+  - Supports all comparison operators: `>=`, `>`, `<=`, `<`, `==`, `!=`
+  - Supports both Minitest and RSpec formats
+  - Skips boundary value generation for variable references and method calls
 
 ### Changed
 
 - Updated `Values::MethodInfo` to include `exceptions` field (default: [])
+- Updated `Values::MethodInfo` to include `boundary_values` field (default: [])
+- Updated `Extractors::MethodNames` to automatically run `BoundaryValueGenerator` for each method
 - Updated Minitest and RSpec formatters to include exception information in generated test comments
+- Updated Minitest and RSpec formatters to include boundary value suggestions in generated test comments
 - Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.1
   - For improved method parameter information support
   - Fix segmentation fault when parsing dynamic symbol and nested modules

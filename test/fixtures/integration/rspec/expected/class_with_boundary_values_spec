@@ -1,0 +1,78 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Calculator, type: :model do
+  describe "#validate_age" do
+    # Comparisons: < (age < 18), >= (age >= 18), < (age < 65), >= (age >= 65)
+    # Boundary value suggestions:
+    #   age < 18: [17 (below), 18 (boundary)]
+    #   age >= 18: [17 (below), 18 (boundary), 19 (above)]
+    #   age < 65: [64 (below), 65 (boundary)]
+    #   age >= 65: [64 (below), 65 (boundary), 66 (above)]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_range" do
+    # Comparisons: < (value < 0), > (value > 100)
+    # Boundary value suggestions:
+    #   value < 0: [-1 (below), 0 (boundary)]
+    #   value > 100: [100 (boundary), 101 (above)]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_price" do
+    # Comparisons: == (price == 0)
+    # Boundary value suggestions:
+    #   price == 0: [-1 (not equal), 0 (equal), 1 (not equal)]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_name" do
+    # Comparisons: == (name == "Alice")
+    # Boundary value suggestions:
+    #   name == "Alice": [equal: "Alice", not equal: different string]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_status" do
+    # Comparisons: == (status == :active)
+    # Boundary value suggestions:
+    #   status == :active: [symbol check: test with [":active", ":other_symbol"]]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_flag" do
+    # Comparisons: == (enabled == true)
+    # Boundary value suggestions:
+    #   enabled == true: [boolean check: test with [true, false]]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#check_nil" do
+    # Comparisons: == (value == nil)
+    # Boundary value suggestions:
+    #   value == nil: [nil check: test with [nil, "some_value"]]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#simple_method" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

@@ -1,0 +1,62 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+class CalculatorTest < Minitest::Test
+  def test_validate_age
+    # Comparisons: < (age < 18), >= (age >= 18), < (age < 65), >= (age >= 65)
+    # Boundary value suggestions:
+    #   age < 18: [17 (below), 18 (boundary)]
+    #   age >= 18: [17 (below), 18 (boundary), 19 (above)]
+    #   age < 65: [64 (below), 65 (boundary)]
+    #   age >= 65: [64 (below), 65 (boundary), 66 (above)]
+    skip "Not implemented yet"
+  end
+
+  def test_check_range
+    # Comparisons: < (value < 0), > (value > 100)
+    # Boundary value suggestions:
+    #   value < 0: [-1 (below), 0 (boundary)]
+    #   value > 100: [100 (boundary), 101 (above)]
+    skip "Not implemented yet"
+  end
+
+  def test_check_price
+    # Comparisons: == (price == 0)
+    # Boundary value suggestions:
+    #   price == 0: [-1 (not equal), 0 (equal), 1 (not equal)]
+    skip "Not implemented yet"
+  end
+
+  def test_check_name
+    # Comparisons: == (name == "Alice")
+    # Boundary value suggestions:
+    #   name == "Alice": [equal: "Alice", not equal: different string]
+    skip "Not implemented yet"
+  end
+
+  def test_check_status
+    # Comparisons: == (status == :active)
+    # Boundary value suggestions:
+    #   status == :active: [symbol check: test with [":active", ":other_symbol"]]
+    skip "Not implemented yet"
+  end
+
+  def test_check_flag
+    # Comparisons: == (enabled == true)
+    # Boundary value suggestions:
+    #   enabled == true: [boolean check: test with [true, false]]
+    skip "Not implemented yet"
+  end
+
+  def test_check_nil
+    # Comparisons: == (value == nil)
+    # Boundary value suggestions:
+    #   value == nil: [nil check: test with [nil, "some_value"]]
+    skip "Not implemented yet"
+  end
+
+  def test_simple_method
+    skip "Not implemented yet"
+  end
+end

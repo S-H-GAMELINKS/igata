@@ -10,12 +10,16 @@ class RoleCheckerTest < Minitest::Test
   def test_admin_action
     # Branches: if (@role == "admin")
     # Comparisons: == (@role == "admin")
+    # Boundary value suggestions:
+    #   @role == "admin": [equal: "admin", not equal: different string]
     skip "Not implemented yet"
   end
 
   def test_guest_message
     # Branches: unless (@role == "guest")
     # Comparisons: == (@role == "guest")
+    # Boundary value suggestions:
+    #   @role == "guest": [equal: "guest", not equal: different string]
     skip "Not implemented yet"
   end
 

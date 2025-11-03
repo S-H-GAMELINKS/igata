@@ -11,6 +11,8 @@ RSpec.describe User do
 
   describe "#adult?" do
     # Comparisons: >= (@age >= 18)
+    # Boundary value suggestions:
+    #   @age >= 18: [17 (below), 18 (boundary), 19 (above)]
     it "works correctly" do
       pending "Not implemented yet"
     end

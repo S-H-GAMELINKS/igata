@@ -29,11 +29,15 @@ class Igata
           # Extract exception information for each method
           exceptions = ExceptionAnalyzer.extract(node)
 
+          # Extract boundary value suggestions for each method
+          boundary_values = BoundaryValueGenerator.extract(comparisons)
+
           Values::MethodInfo.new(
             name: node.mid.to_s,
             branches: branches,
             comparisons: comparisons,
-            exceptions: exceptions
+            exceptions: exceptions,
+            boundary_values: boundary_values
           )
         end
       end
