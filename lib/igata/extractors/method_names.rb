@@ -11,6 +11,7 @@ class Igata
         @class_node = class_node
       end
 
+      # rubocop:disable Metrics/MethodLength
       def extract
         class_body = @class_node.body.body
         # For empty classes, class_body is BeginNode which doesn't have filter_map
@@ -25,9 +26,18 @@ class Igata
           # Extract comparison information for each method
           comparisons = ComparisonAnalyzer.extract(node)
 
-          Values::MethodInfo.new(name: node.mid.to_s, branches: branches, comparisons: comparisons)
+          # Extract exception information for each method
+          exceptions = ExceptionAnalyzer.extract(node)
+
+          Values::MethodInfo.new(
+            name: node.mid.to_s,
+            branches: branches,
+            comparisons: comparisons,
+            exceptions: exceptions
+          )
         end
       end
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end

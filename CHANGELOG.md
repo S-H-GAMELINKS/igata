@@ -1,7 +1,19 @@
 ## [Unreleased]
 
+### Added
+
+- Added exception and error handling analysis:
+  - `Extractors::ExceptionAnalyzer`: Detects `raise` statements and `rescue` clauses in methods
+  - `Values::ExceptionInfo`: Value object for exception information (type, class, message, context)
+  - Generates test comments showing:
+    - Exceptions raised: Shows exception class and message (e.g., `ArgumentError ("Invalid amount")`)
+    - Exceptions rescued: Shows caught exception classes (e.g., `PaymentError`)
+  - Supports both Minitest and RSpec formats
+
 ### Changed
 
+- Updated `Values::MethodInfo` to include `exceptions` field (default: [])
+- Updated Minitest and RSpec formatters to include exception information in generated test comments
 - Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.1
   - For improved method parameter information support
   - Fix segmentation fault when parsing dynamic symbol and nested modules

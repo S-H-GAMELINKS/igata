@@ -24,6 +24,7 @@ class Igata
           method_name = method_info.name
           branches = method_info.branches
           comparisons = method_info.comparisons
+          exceptions = method_info.exceptions
           ERB.new(File.read(template_path("method")), trim_mode: "<>").result(binding)
         end
       end

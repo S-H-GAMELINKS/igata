@@ -100,6 +100,45 @@ RSpec.describe User do
 end
 ```
 
+### Exception Handling Detection
+
+Igata detects exception handling patterns and generates helpful test comments:
+
+```ruby
+class PaymentProcessor
+  def process_payment(amount)
+    raise ArgumentError, "Invalid amount" if amount <= 0
+
+    charge_card(amount)
+  rescue PaymentError => e
+    log_error(e)
+    false
+  end
+end
+```
+
+Generated Minitest output:
+
+```ruby
+class PaymentProcessorTest < Minitest::Test
+  def test_process_payment
+    # Branches: if (amount <= 0)
+    # Comparisons: <= (amount <= 0)
+    # Exceptions raised: ArgumentError ("Invalid amount")
+    # Exceptions rescued: PaymentError
+    skip "Not implemented yet"
+  end
+end
+```
+
+## Features
+
+- ✅ **Branch Analysis**: Detects `if`, `elsif`, `else`, `unless`, and `case` statements
+- ✅ **Comparison Analysis**: Detects comparison operators (`>=`, `<=`, `>`, `<`, `==`, `!=`)
+- ✅ **Exception Analysis**: Detects `raise` statements and `rescue` clauses
+- ✅ **Multiple Formatters**: Supports Minitest and RSpec test generation
+- ✅ **AST-based**: Uses Kanayago parser for accurate Ruby code analysis
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

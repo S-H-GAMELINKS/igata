@@ -11,10 +11,11 @@ class Igata
     MethodInfo = Data.define(
       :name,          # "initialize"
       :branches,      # Array of BranchInfo (default: [])
-      :comparisons    # Array of ComparisonInfo (default: [])
+      :comparisons,   # Array of ComparisonInfo (default: [])
+      :exceptions     # Array of ExceptionInfo (default: [])
     ) do
-      def initialize(name:, branches: [], comparisons: [])
-        super(name: name, branches: branches, comparisons: comparisons)
+      def initialize(name:, branches: [], comparisons: [], exceptions: [])
+        super(name: name, branches: branches, comparisons: comparisons, exceptions: exceptions)
       end
     end
 
@@ -28,6 +29,13 @@ class Igata
       :left,          # left side expression
       :right,         # right side expression
       :context        # full expression as string (e.g., "age >= 18")
+    )
+
+    ExceptionInfo = Data.define(
+      :type,            # :raise or :rescue
+      :exception_class, # exception class name (e.g., "ArgumentError", "StandardError")
+      :message,         # message for raise (e.g., "Invalid amount")
+      :context          # full expression as string
     )
   end
 end

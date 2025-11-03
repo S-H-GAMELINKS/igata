@@ -5,6 +5,16 @@
 <% if comparisons && !comparisons.empty? %>
     # Comparisons: <%= comparisons.map { |c| "#{c.operator} (#{c.context})" }.join(", ") %>
 <% end %>
+<% if exceptions && !exceptions.empty? %>
+<%   raised = exceptions.select { |e| e.type == :raise } %>
+<%   rescued = exceptions.select { |e| e.type == :rescue } %>
+<%   if !raised.empty? %>
+    # Exceptions raised: <%= raised.map { |e| e.message ? "#{e.exception_class} (\"#{e.message}\")" : e.exception_class }.join(", ") %>
+<%   end %>
+<%   if !rescued.empty? %>
+    # Exceptions rescued: <%= rescued.map { |e| e.exception_class }.uniq.join(", ") %>
+<%   end %>
+<% end %>
     it "works correctly" do
       pending "Not implemented yet"
     end
