@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe App::User::Profile do
+  describe "#initialize" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#adult?" do
+    # Comparisons: >= (@age >= 18)
+    # Boundary value suggestions:
+    #   @age >= 18: [17 (below), 18 (boundary), 19 (above)]
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#greeting" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

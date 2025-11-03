@@ -16,8 +16,7 @@ class Igata
       :boundary_values  # Array of BoundaryValueInfo (default: [])
     ) do
       def initialize(name:, branches: [], comparisons: [], exceptions: [], boundary_values: [])
-        super(name: name, branches: branches, comparisons: comparisons, exceptions: exceptions,
-              boundary_values: boundary_values)
+        super
       end
     end
 

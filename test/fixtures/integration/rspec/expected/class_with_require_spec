@@ -1,0 +1,25 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe FileProcessor do
+  describe "#process" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#validate_file" do
+    # Branches: unless (file.exist?)
+    # Exceptions raised: ArgumentError
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#compress" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

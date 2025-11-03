@@ -2,6 +2,7 @@
 
 class Igata
   module Extractors
+    # rubocop:disable Lint/DuplicateBranch
     class ComparisonAnalyzer
       COMPARISON_OPERATORS = %i[>= <= > < == !=].freeze
 
@@ -113,5 +114,6 @@ class Igata
         "#{left} #{operator} #{right}"
       end
     end
+    # rubocop:enable Lint/DuplicateBranch
   end
 end

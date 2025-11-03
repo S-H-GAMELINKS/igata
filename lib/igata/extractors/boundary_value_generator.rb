@@ -2,7 +2,7 @@
 
 class Igata
   module Extractors
-    # rubocop:disable Metrics/ClassLength
+    # rubocop:disable Metrics/ClassLength, Lint/DuplicateBranch, Naming/PredicateMethod
     class BoundaryValueGenerator
       def self.extract(comparisons)
         new(comparisons).extract
@@ -271,6 +271,6 @@ class Igata
         end
       end
     end
-    # rubocop:enable Metrics/ClassLength
+    # rubocop:enable Metrics/ClassLength, Lint/DuplicateBranch, Naming/PredicateMethod
   end
 end

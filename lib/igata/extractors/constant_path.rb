@@ -2,7 +2,8 @@
 
 class Igata
   module Extractors
-    class ConstantPath # rubocop:disable Metrics/ClassLength
+    # rubocop:disable Metrics/ClassLength, Lint/DuplicateBranch
+    class ConstantPath
       def self.extract(ast)
         new(ast).extract
       end
@@ -155,5 +156,6 @@ class Igata
         deeper_child || direct_child
       end
     end
+    # rubocop:enable Metrics/ClassLength, Lint/DuplicateBranch
   end
 end
