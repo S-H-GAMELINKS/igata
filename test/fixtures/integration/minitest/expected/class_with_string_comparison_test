@@ -9,16 +9,22 @@ class StatusCheckerTest < Minitest::Test
 
   def test_active?
     # Comparisons: == (@status == "active")
+    # Boundary value suggestions:
+    #   @status == "active": [equal: "active", not equal: different string]
     skip "Not implemented yet"
   end
 
   def test_pending?
     # Comparisons: == (@status == "pending")
+    # Boundary value suggestions:
+    #   @status == "pending": [equal: "pending", not equal: different string]
     skip "Not implemented yet"
   end
 
   def test_check_type
     # Comparisons: != (type != "invalid")
+    # Boundary value suggestions:
+    #   type != "invalid": [equal: "invalid", not equal: different string]
     skip "Not implemented yet"
   end
 end

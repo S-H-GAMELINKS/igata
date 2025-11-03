@@ -6,6 +6,8 @@ RSpec.describe Calculator do
   describe "#check" do
     # Branches: if (value > 0)
     # Comparisons: > (value > 0)
+    # Boundary value suggestions:
+    #   value > 0: [0 (boundary), 1 (above)]
     it "works correctly" do
       pending "Not implemented yet"
     end

@@ -6,6 +6,8 @@ class CalculatorTest < Minitest::Test
   def test_check
     # Branches: if (value > 0)
     # Comparisons: > (value > 0)
+    # Boundary value suggestions:
+    #   value > 0: [0 (boundary), 1 (above)]
     skip "Not implemented yet"
   end
 
