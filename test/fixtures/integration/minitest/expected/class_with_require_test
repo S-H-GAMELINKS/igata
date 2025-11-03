@@ -9,6 +9,7 @@ class FileProcessorTest < Minitest::Test
 
   def test_validate_file
     # Branches: unless (file.exist?)
+    # Exceptions raised: ArgumentError
     skip "Not implemented yet"
   end
 

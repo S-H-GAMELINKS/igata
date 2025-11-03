@@ -2,6 +2,7 @@
 
 class Igata
   module Extractors
+    # rubocop:disable Metrics/ClassLength
     class BranchAnalyzer
       def self.extract(method_node)
         new(method_node).extract
@@ -54,6 +55,22 @@ class Igata
           # Traverse when branches
           traverse_node(node.body, branches) if node.respond_to?(:body)
           traverse_node(node.else, branches) if node.respond_to?(:else)
+        # Handle RescueNode (container node for rescue clauses)
+        elsif node.is_a?(Kanayago::RescueNode)
+          # Traverse head (main body before rescue)
+          if node.respond_to?(:head) && node.head
+            if node.head.is_a?(Array)
+              node.head.each { |child| traverse_node(child, branches) }
+            else
+              traverse_node(node.head, branches)
+            end
+          end
+          traverse_node(node.resq, branches) if node.respond_to?(:resq)
+          traverse_node(node.else, branches) if node.respond_to?(:else)
+        # Handle RescueBodyNode
+        elsif node.is_a?(Kanayago::RescueBodyNode)
+          traverse_node(node.body, branches) if node.respond_to?(:body)
+          traverse_node(node.next, branches) if node.respond_to?(:next)
         # Handle ScopeNode (container node)
         elsif node.is_a?(Kanayago::ScopeNode)
           traverse_node(node.body, branches) if node.respond_to?(:body)
@@ -121,5 +138,6 @@ class Igata
         end
       end
     end
+    # rubocop:enable Metrics/ClassLength
   end
 end

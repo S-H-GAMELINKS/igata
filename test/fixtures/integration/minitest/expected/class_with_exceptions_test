@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+class PaymentProcessorTest < Minitest::Test
+  def test_process_payment
+    # Branches: if (amount <= 0)
+    # Comparisons: <= (amount <= 0)
+    # Exceptions raised: ArgumentError ("Invalid amount")
+    # Exceptions rescued: PaymentError
+    skip "Not implemented yet"
+  end
+
+  def test_validate_user
+    # Branches: unless (user), unless (user.exists?)
+    # Exceptions raised: StandardError ("User is nil"), StandardError ("User not found")
+    skip "Not implemented yet"
+  end
+
+  def test_simple_method
+    skip "Not implemented yet"
+  end
+end
