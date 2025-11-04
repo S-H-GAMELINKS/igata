@@ -161,6 +161,88 @@ class Igata
 
         assert_equal 0, result.size
       end
+
+      # ===== エッジケーステスト =====
+
+      # Test with negative number boundary
+      def test_extract_with_negative_boundary
+        comparison = Values::ComparisonInfo.new(operator: :>=, left: "temp", right: "-10", context: "temp >= -10")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        assert_equal 1, result.size
+        boundary = result.first
+        assert_equal [-11, -10, -9], boundary.test_values
+      end
+
+      # Test with zero boundary
+      def test_extract_with_zero_boundary
+        comparison = Values::ComparisonInfo.new(operator: :>, left: "value", right: "0", context: "value > 0")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        assert_equal 1, result.size
+        boundary = result.first
+        assert_equal [0, 1], boundary.test_values
+      end
+
+      # Test with large number
+      def test_extract_with_large_number
+        comparison = Values::ComparisonInfo.new(operator: :<=, left: "max", right: "9999", context: "max <= 9999")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        assert_equal 1, result.size
+        boundary = result.first
+        assert_equal [9998, 9999, 10_000], boundary.test_values
+      end
+
+      # Test with negative float
+      def test_extract_with_negative_float
+        comparison = Values::ComparisonInfo.new(operator: :<, left: "temp", right: "-5.5",
+                                                context: "temp < -5.5")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        assert_equal 1, result.size
+        boundary = result.first
+        assert_equal [-6.5, -5.5], boundary.test_values
+      end
+
+      # Test with very small float
+      def test_extract_with_small_float
+        comparison = Values::ComparisonInfo.new(operator: :>=, left: "ratio", right: "0.1", context: "ratio >= 0.1")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        assert_equal 1, result.size
+        boundary = result.first
+        # Should handle float precision properly
+        assert_equal 3, boundary.test_values.size
+      end
+
+      # Test with method call on right side
+      def test_extract_with_method_call_right_side
+        comparison = Values::ComparisonInfo.new(operator: :>, left: "value", right: "array.size",
+                                                context: "value > array.size")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        # Method calls are not literals, should not generate boundaries
+        assert_equal 0, result.size
+      end
+
+      # Test with expression on right side
+      def test_extract_with_expression_right_side
+        comparison = Values::ComparisonInfo.new(operator: :>=, left: "x", right: "y + 10", context: "x >= y + 10")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        # Expressions are not literals, should not generate boundaries
+        assert_equal 0, result.size
+      end
+
+      # Test with constant on right side
+      def test_extract_with_constant_right_side
+        comparison = Values::ComparisonInfo.new(operator: :<=, left: "age", right: "MAX_AGE", context: "age <= MAX_AGE")
+        result = BoundaryValueGenerator.extract([comparison])
+
+        # Constants without numeric value should not generate boundaries
+        assert_equal 0, result.size
+      end
     end
     # rubocop:enable Metrics/ClassLength
   end

@@ -64,6 +64,7 @@ class Igata
     end
   end
 
+  # rubocop:disable Lint/DuplicateBranch
   def find_root_class_node(node)
     if node.is_a?(Kanayago::ClassNode) || node.is_a?(Kanayago::ModuleNode)
       node
@@ -73,6 +74,7 @@ class Igata
       node
     end
   end
+  # rubocop:enable Lint/DuplicateBranch
 
   def find_deepest_class_node(parent_node) # rubocop:disable Metrics/CyclomaticComplexity
     # Find direct child class/module under the current node

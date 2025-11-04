@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe User::Updator do
+  describe "#initialize" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#update_name" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+
+  describe "#update_email" do
+    it "works correctly" do
+      pending "Not implemented yet"
+    end
+  end
+end

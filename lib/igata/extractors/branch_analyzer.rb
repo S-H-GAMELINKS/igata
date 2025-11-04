@@ -2,7 +2,7 @@
 
 class Igata
   module Extractors
-    # rubocop:disable Metrics/ClassLength
+    # rubocop:disable Metrics/ClassLength, Lint/DuplicateBranch
     class BranchAnalyzer
       def self.extract(method_node)
         new(method_node).extract
@@ -138,6 +138,6 @@ class Igata
         end
       end
     end
-    # rubocop:enable Metrics/ClassLength
+    # rubocop:enable Metrics/ClassLength, Lint/DuplicateBranch
   end
 end
