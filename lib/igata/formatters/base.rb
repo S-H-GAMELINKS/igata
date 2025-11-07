@@ -13,7 +13,11 @@ class Igata
       end
 
       def generate
-        raise MethodNotOverriddenError, "#{self.class}#generate must be implemented"
+        class_name = @constant_info.path
+        methods = generate_methods
+
+        template = ERB.new(File.read(template_path("class")), trim_mode: "<>")
+        template.result(binding)
       end
 
       private
@@ -29,6 +33,17 @@ class Igata
       def render_template(template_file, binding_context)
         template_content = File.read(template_file)
         ERB.new(template_content, trim_mode: "<>").result(binding_context)
+      end
+
+      def generate_methods
+        @method_infos.map do |method_info|
+          method_name = method_info.name
+          branches = method_info.branches
+          comparisons = method_info.comparisons
+          exceptions = method_info.exceptions
+          boundary_values = method_info.boundary_values
+          ERB.new(File.read(template_path("method")), trim_mode: "<>").result(binding)
+        end
       end
     end
   end

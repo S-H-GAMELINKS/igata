@@ -5,29 +5,10 @@ require_relative "base"
 class Igata
   module Formatters
     class RSpec < Base
-      def generate
-        class_name = @constant_info.path
-        methods = generate_methods
-
-        template = ERB.new(File.read(template_path("class")), trim_mode: "<>")
-        template.result(binding)
-      end
-
       private
 
       def templates_dir
         File.join(__dir__, "templates", "rspec")
-      end
-
-      def generate_methods
-        @method_infos.map do |method_info|
-          method_name = method_info.name
-          branches = method_info.branches
-          comparisons = method_info.comparisons
-          exceptions = method_info.exceptions
-          boundary_values = method_info.boundary_values
-          ERB.new(File.read(template_path("method")), trim_mode: "<>").result(binding)
-        end
       end
     end
   end
