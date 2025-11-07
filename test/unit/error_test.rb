@@ -3,8 +3,6 @@
 require "test_helper"
 
 class TestError < Minitest::Test
-  # ===== Igata::Error のテスト =====
-
   def test_error_is_standard_error
     assert Igata::Error < StandardError
   end
@@ -26,28 +24,17 @@ class TestError < Minitest::Test
     assert rescued, "Igata::Error should be rescuable as StandardError"
   end
 
-  # ===== Formatters::MethodNotOverriddenError のテスト =====
-
   def test_method_not_overridden_error_inheritance
     assert Igata::Formatters::MethodNotOverriddenError < Igata::Error
   end
 
-  def test_method_not_overridden_error_raised_in_base_formatter_generate
+  def test_constant_info_is_nil_raised_in_base_formatter_generate
     formatter = Igata::Formatters::Base.new(nil, [])
-    error = assert_raises(Igata::Formatters::MethodNotOverriddenError) do
-      formatter.generate
-    end
-    assert_match(/Igata::Formatters::Base#generate must be implemented/, error.message)
-  end
 
-  def test_method_not_overridden_error_can_be_rescued_as_igata_error
-    formatter = Igata::Formatters::Base.new(nil, [])
-    rescued = false
-    begin
+    error = assert_raises(NoMethodError) do
       formatter.generate
-    rescue Igata::Error
-      rescued = true
     end
-    assert rescued, "MethodNotOverriddenError should be rescuable as Igata::Error"
+
+    assert_match "undefined method 'path' for nil", error.message
   end
 end

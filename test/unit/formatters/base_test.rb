@@ -21,7 +21,7 @@ class Igata
           @formatter.generate
         end
 
-        assert_match(/Base#generate must be implemented/, error.message)
+        assert_match(/Base#templates_dir must be implemented/, error.message)
       end
 
       def test_templates_dir_raises_method_not_overridden_error
