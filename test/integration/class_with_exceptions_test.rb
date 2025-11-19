@@ -3,6 +3,7 @@
 require "test_helper"
 
 class Igata
+  # rubocop:disable Metrics/ClassLength
   class ClassWithExceptionsTest < Minitest::Test
     def test_generate_class_with_exceptions_with_minitest_formatter
       source = File.read(File.expand_path("../fixtures/integration/sources/class_with_exceptions.rb", __dir__))
@@ -80,6 +81,44 @@ class Igata
       assert_includes output, '# Exceptions raised: StandardError ("User is nil"), StandardError ("User not found")'
     end
 
+    def test_generate_class_with_exceptions_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_exceptions.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, "describe PaymentProcessor do"
+      assert_includes output, 'describe "#process_payment" do'
+      assert_includes output, 'describe "#validate_user" do'
+      assert_includes output, 'describe "#simple_method" do'
+    end
+
+    def test_generate_method_with_raise_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_exceptions.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#process_payment" do'
+      assert_includes output, '# Exceptions raised: ArgumentError ("Invalid amount")'
+    end
+
+    def test_generate_method_with_rescue_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_exceptions.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#process_payment" do'
+      assert_includes output, "# Exceptions rescued: PaymentError"
+    end
+
+    def test_generate_method_with_multiple_raises_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_exceptions.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#validate_user" do'
+      assert_includes output, '# Exceptions raised: StandardError ("User is nil"), StandardError ("User not found")'
+    end
+
     # rubocop:disable Metrics/AbcSize, Layout/LineLength
     def test_generate_method_without_exceptions_with_minitest_formatter
       source = File.read(File.expand_path("../fixtures/integration/sources/class_with_exceptions.rb", __dir__))
@@ -106,4 +145,5 @@ class Igata
     end
     # rubocop:enable Metrics/AbcSize, Layout/LineLength
   end
+  # rubocop:enable Metrics/ClassLength
 end

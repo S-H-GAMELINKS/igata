@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+require "test_helper"
+require "minitest/spec"
+
+describe PaymentProcessor do
+  describe "#process_payment" do
+    # Branches: if (amount <= 0)
+    # Comparisons: <= (amount <= 0)
+    # Exceptions raised: ArgumentError ("Invalid amount")
+    # Exceptions rescued: PaymentError
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#validate_user" do
+    # Branches: unless (user), unless (user.exists?)
+    # Exceptions raised: StandardError ("User is nil"), StandardError ("User not found")
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#simple_method" do
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+end

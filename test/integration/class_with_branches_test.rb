@@ -79,5 +79,43 @@ class Igata
       assert_includes output, 'describe "#validate" do'
       assert_includes output, 'describe "#status" do'
     end
+
+    def test_generate_class_with_if_branch_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_branches.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, "describe Calculator do"
+      assert_includes output, 'describe "#check" do'
+      assert_includes output, "# Branches: if"
+    end
+
+    def test_generate_class_with_unless_branch_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_branches.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#validate" do'
+      assert_includes output, "# Branches: unless"
+    end
+
+    def test_generate_class_with_case_branch_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_branches.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#status" do'
+      assert_includes output, "# Branches: case"
+    end
+
+    def test_all_methods_included_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_branches.rb", __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#check" do'
+      assert_includes output, 'describe "#validate" do'
+      assert_includes output, 'describe "#status" do'
+    end
   end
 end

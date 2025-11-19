@@ -111,6 +111,43 @@ RSpec.describe User do
 end
 ```
 
+### 4. Generate Minitest Spec
+
+```bash
+igata user.rb -f minitest_spec > test/user_spec.rb
+```
+
+Output:
+
+```ruby
+# frozen_string_literal: true
+
+require "test_helper"
+require "minitest/spec"
+
+describe User do
+  describe "#initialize" do
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#adult?" do
+    # Comparisons: >= (@age >= 18)
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#greeting" do
+    # Branches: if (@name)
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+end
+```
+
 ## Common Usage Patterns
 
 ### Generate from stdin

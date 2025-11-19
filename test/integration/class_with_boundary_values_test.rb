@@ -39,6 +39,23 @@ class Igata
       assert_includes output, 'describe "#check_nil"'
       assert_includes output, 'describe "#simple_method"'
     end
+
+    def test_generate_class_with_boundary_values_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_boundary_values.rb",
+                                          __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, "describe Calculator do"
+      assert_includes output, 'describe "#validate_age"'
+      assert_includes output, 'describe "#check_range"'
+      assert_includes output, 'describe "#check_price"'
+      assert_includes output, 'describe "#check_name"'
+      assert_includes output, 'describe "#check_status"'
+      assert_includes output, 'describe "#check_flag"'
+      assert_includes output, 'describe "#check_nil"'
+      assert_includes output, 'describe "#simple_method"'
+    end
     # rubocop:enable Metrics/MethodLength
 
     def test_generate_numeric_boundary_values_with_minitest_formatter

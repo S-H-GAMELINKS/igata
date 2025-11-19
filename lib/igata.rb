@@ -14,6 +14,7 @@ require_relative "igata/extractors/exception_analyzer"
 require_relative "igata/extractors/boundary_value_generator"
 require_relative "igata/formatters/minitest"
 require_relative "igata/formatters/rspec"
+require_relative "igata/formatters/minitest_spec"
 
 class Igata
   def initialize(source, formatter: :minitest)
@@ -33,18 +34,22 @@ class Igata
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   def resolve_formatter(formatter)
     case formatter
     when :minitest
       Formatters::Minitest
     when :rspec
       Formatters::RSpec
+    when :minitest_spec
+      Formatters::MinitestSpec
     when Class
       formatter
     else
       raise Error, "Unknown formatter: #{formatter}"
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def find_target_class_node(constant_info)
     # First, find the actual ClassNode if @ast.body is a BlockNode
