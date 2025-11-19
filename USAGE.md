@@ -171,8 +171,14 @@ end
 ### Service Objects
 
 ```bash
-# Generate test for service object
+# Generate RSpec test for service object
 igata app/services/subscription_renewal_service.rb -f rspec > spec/services/subscription_renewal_service_spec.rb
+
+# Or generate Minitest Spec test (RSpec-style DSL with Minitest)
+igata app/services/subscription_renewal_service.rb -f minitest_spec > test/services/subscription_renewal_service_spec.rb
+
+# Or generate traditional Minitest test
+igata app/services/subscription_renewal_service.rb > test/services/subscription_renewal_service_test.rb
 ```
 
 ---

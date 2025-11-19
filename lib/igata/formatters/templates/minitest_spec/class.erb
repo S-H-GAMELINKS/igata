@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require "test_helper"
+require "minitest/spec"
+
+describe <%= class_name %> do
+<% methods.each_with_index do |method, index| %>
+<%= method %>
+<% if index < methods.length - 1 %>
+
+<% end %>
+<% end %>
+end

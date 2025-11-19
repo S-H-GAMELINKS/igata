@@ -36,10 +36,19 @@ bundle exec igata lib/user.rb -f rspec > spec/user_spec.rb
 bundle exec igata lib/user.rb --formatter rspec > spec/user_spec.rb
 ```
 
+Generate Minitest Spec tests:
+
+```bash
+bundle exec igata lib/user.rb -f minitest_spec > test/user_spec.rb
+# or
+bundle exec igata lib/user.rb --formatter minitest_spec > test/user_spec.rb
+```
+
 ### Supported Formatters
 
-- `minitest` (default): Generates Minitest-style tests
+- `minitest` (default): Generates Minitest-style tests (class-based)
 - `rspec`: Generates RSpec-style tests
+- `minitest_spec`: Generates Minitest Spec-style tests (RSpec-style DSL with Minitest)
 
 ### Example
 
@@ -95,6 +104,30 @@ RSpec.describe User do
     # Comparisons: >= (@age >= 18)
     it "works correctly" do
       pending "Not implemented yet"
+    end
+  end
+end
+```
+
+Minitest Spec output:
+
+```ruby
+# frozen_string_literal: true
+
+require "test_helper"
+require "minitest/spec"
+
+describe User do
+  describe "#initialize" do
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#adult?" do
+    # Comparisons: >= (@age >= 18)
+    it "works correctly" do
+      skip "Not implemented yet"
     end
   end
 end

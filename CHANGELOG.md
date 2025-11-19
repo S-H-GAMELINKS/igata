@@ -2,6 +2,11 @@
 
 ### Added
 
+- Minitest Spec formatter support
+  - New `-f minitest_spec` option for generating Minitest Spec style tests
+  - Uses Minitest's built-in RSpec-style DSL (minitest/spec)
+  - Generates `describe`/`it` blocks instead of class-based tests
+  - Fully compatible with all existing analysis features (branches, comparisons, exceptions, boundary values)
 - Added exception and error handling analysis:
   - `Extractors::ExceptionAnalyzer`: Detects `raise` statements and `rescue` clauses in methods
   - `Values::ExceptionInfo`: Value object for exception information (type, class, message, context)
@@ -24,6 +29,7 @@
 
 ### Changed
 
+- CLI now supports three formatters: `minitest` (default), `rspec`, and `minitest_spec`
 - Updated `Values::MethodInfo` to include `exceptions` field (default: [])
 - Updated `Values::MethodInfo` to include `boundary_values` field (default: [])
 - Updated `Extractors::MethodNames` to automatically run `BoundaryValueGenerator` for each method
@@ -33,6 +39,12 @@
   - For improved method parameter information support
   - Fix segmentation fault when parsing dynamic symbol and nested modules
   - see: https://github.com/S-H-GAMELINKS/kanayago/blob/master/CHANGELOG.md#041
+
+### Documentation
+
+- Added Minitest Spec examples to README.md
+- Added Minitest Spec usage guide to QUICKSTART.md
+- Updated USAGE.md with Minitest Spec details
 
 ### Fixed
 

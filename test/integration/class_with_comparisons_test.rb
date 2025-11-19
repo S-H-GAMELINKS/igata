@@ -134,6 +134,30 @@ class Igata
       assert_includes output, 'describe "#valid_range?" do'
       assert_includes output, 'describe "#check_status" do'
     end
+
+    def test_generate_class_with_greater_than_or_equal_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_comparisons.rb",
+                                          __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, "describe Validator do"
+      assert_includes output, 'describe "#adult?" do'
+      assert_includes output, "# Comparisons: >= (age >= 18)"
+    end
+
+    def test_all_methods_included_with_minitest_spec_formatter
+      source = File.read(File.expand_path("../fixtures/integration/sources/class_with_comparisons.rb",
+                                          __dir__))
+      igata = Igata.new(source, formatter: :minitest_spec)
+      output = igata.generate
+
+      assert_includes output, 'describe "#adult?" do'
+      assert_includes output, 'describe "#minor?" do'
+      assert_includes output, 'describe "#equal_check" do'
+      assert_includes output, 'describe "#valid_range?" do'
+      assert_includes output, 'describe "#check_status" do'
+    end
   end
   # rubocop:enable Metrics/ClassLength
 end

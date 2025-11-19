@@ -9,8 +9,8 @@ OptionParser.new do |opts|
   opts.banner = "Usage: igata [options] [file]"
   opts.version = Igata::VERSION
 
-  opts.on("-f", "--formatter FORMATTER", %i[minitest rspec],
-          "Test framework formatter (minitest, rspec)") do |formatter|
+  opts.on("-f", "--formatter FORMATTER", %i[minitest rspec minitest_spec],
+          "Test framework formatter (minitest, rspec, minitest_spec)") do |formatter|
     options[:formatter] = formatter
   end
 
