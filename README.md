@@ -178,6 +178,20 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+### Integration Tests
+
+Run integration tests against real-world Rails applications (Rails, Discourse, Mastodon, GitLab):
+
+```bash
+# Run integration tests (automatically clones repositories on first run)
+bundle exec rake integration:test
+
+# Manually setup/update/clean repositories
+bundle exec rake integration:setup   # Clone repositories
+bundle exec rake integration:update  # Update repositories
+bundle exec rake integration:clean   # Remove repositories
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/S-H-GAMELINKS/igata.

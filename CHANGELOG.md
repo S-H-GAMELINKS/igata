@@ -2,6 +2,11 @@
 
 ### Added
 
+- Integration test tasks for real-world Rails applications
+  - `rake integration:setup`: Clone test repositories (Rails, Discourse, Mastodon, GitLab)
+  - `rake integration:test`: Run Igata against all Ruby files in repositories
+  - `rake integration:clean`: Remove cloned repositories
+  - `rake integration:update`: Update cloned repositories
 - Minitest Spec formatter support
   - New `-f minitest_spec` option for generating Minitest Spec style tests
   - Uses Minitest's built-in RSpec-style DSL (minitest/spec)
