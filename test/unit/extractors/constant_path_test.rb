@@ -11,7 +11,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "User", result.path
@@ -25,7 +25,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "User::Profile", result.path
@@ -39,7 +39,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "App::Model::User", result.path
@@ -55,7 +55,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "User::Profile", result.path
@@ -73,7 +73,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "App::User::Profile", result.path
@@ -89,7 +89,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "App::User::Profile", result.path
@@ -105,7 +105,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "User::App::Profile", result.path
@@ -123,7 +123,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "App::Model::Admin::User::Profile", result.path
@@ -137,7 +137,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "User", result.path
@@ -151,7 +151,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         result = Igata::Extractors::ConstantPath.extract(ast)
 
         assert_equal "User::Updator", result.path
