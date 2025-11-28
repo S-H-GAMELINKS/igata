@@ -35,10 +35,13 @@
 - Updated `Extractors::MethodNames` to automatically run `BoundaryValueGenerator` for each method
 - Updated Minitest and RSpec formatters to include exception information in generated test comments
 - Updated Minitest and RSpec formatters to include boundary value suggestions in generated test comments
-- Updated Kanayago dependency from ~> 0.3.0 to ~> 0.4.1
-  - For improved method parameter information support
-  - Fix segmentation fault when parsing dynamic symbol and nested modules
-  - see: https://github.com/S-H-GAMELINKS/kanayago/blob/master/CHANGELOG.md#041
+- Updated Kanayago dependency from ~> 0.3.0 to ~> 0.6.1
+  - `Kanayago.parse` now returns `Kanayago::ParseResult` instead of AST node directly
+  - Updated all test cases to use `.ast` accessor
+  - This enables future enhancements:
+    - Syntax error handling for invalid Ruby code
+    - Method argument extraction using script_lines
+  - see: https://github.com/S-H-GAMELINKS/kanayago/blob/master/CHANGELOG.md#060
 
 ### Documentation
 

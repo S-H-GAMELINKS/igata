@@ -15,7 +15,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "greeting")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -32,7 +32,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process_payment")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -51,7 +51,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "validate")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -73,7 +73,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -95,7 +95,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process_payment")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -121,7 +121,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "validate")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -146,7 +146,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -170,7 +170,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -196,7 +196,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -214,7 +214,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "get_value")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -239,7 +239,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "complex_process")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -256,7 +256,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "validate")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -275,7 +275,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "validate")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 
@@ -294,7 +294,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::ExceptionAnalyzer.extract(method_node)
 

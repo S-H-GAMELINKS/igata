@@ -13,7 +13,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         class_node = ast.body
         result = Igata::Extractors::MethodNames.extract(class_node)
 
@@ -35,7 +35,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         class_node = ast.body
         result = Igata::Extractors::MethodNames.extract(class_node)
 
@@ -51,7 +51,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         class_node = ast.body
         result = Igata::Extractors::MethodNames.extract(class_node)
 
@@ -69,7 +69,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         class_node = ast.body
         result = Igata::Extractors::MethodNames.extract(class_node)
 
@@ -91,7 +91,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         # Find the inner Profile class
         inner_class = ast.body.body.body.find { |node| node.is_a?(Kanayago::ClassNode) }
         result = Igata::Extractors::MethodNames.extract(inner_class)
@@ -109,7 +109,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         class_node = ast.body
         result = Igata::Extractors::MethodNames.extract(class_node)
 

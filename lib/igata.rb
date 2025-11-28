@@ -19,7 +19,7 @@ require_relative "igata/formatters/minitest_spec"
 class Igata
   def initialize(source, formatter: :minitest)
     @source = source
-    @ast = Kanayago.parse(source)
+    @ast = Kanayago.parse(source).ast
     @formatter = formatter
   end
 

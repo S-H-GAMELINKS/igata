@@ -15,7 +15,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "greeting")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -31,7 +31,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "adult?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -48,7 +48,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "minor?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -65,7 +65,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "admin?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -82,7 +82,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "valid_age?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -104,7 +104,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "check_age")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -123,7 +123,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "not_guest?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -140,7 +140,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "status")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -161,7 +161,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "complex_check")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -180,7 +180,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "valid?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -197,7 +197,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "validate")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -214,7 +214,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "valid_name?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -235,7 +235,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "valid_age?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -252,7 +252,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "in_range?")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 
@@ -279,7 +279,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "categorize")
         result = Igata::Extractors::ComparisonAnalyzer.extract(method_node)
 

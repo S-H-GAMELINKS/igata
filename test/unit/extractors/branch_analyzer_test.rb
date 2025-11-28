@@ -14,7 +14,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "greeting")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -34,7 +34,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "check_age")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -53,7 +53,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "check_permission")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -77,7 +77,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "role_name")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -100,7 +100,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "complex_check")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -124,7 +124,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "nested_check")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -144,7 +144,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "status")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -170,7 +170,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "grade")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -191,7 +191,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -209,7 +209,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "validate")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -232,7 +232,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "complex_logic")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -260,7 +260,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "permission_level")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
@@ -288,7 +288,7 @@ class Igata
           end
         RUBY
 
-        ast = Kanayago.parse(code)
+        ast = Kanayago.parse(code).ast
         method_node = find_method_node(ast, "process")
         result = Igata::Extractors::BranchAnalyzer.extract(method_node)
 
