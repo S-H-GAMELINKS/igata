@@ -2,7 +2,7 @@
 
 class Igata
   module Extractors
-    # rubocop:disable Metrics/ClassLength, Lint/DuplicateBranch
+    # rubocop:disable Metrics/ClassLength
     class ConstantPath
       def self.extract(ast)
         new(ast).extract
@@ -19,12 +19,13 @@ class Igata
           node
         elsif node.is_a?(Kanayago::BlockNode) && node.respond_to?(:find)
           node.find { |n| n.is_a?(Kanayago::ClassNode) || n.is_a?(Kanayago::ModuleNode) }
-        else
-          node
         end
       end
 
-      def extract # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+      def extract # rubocop:disable Metrics/AbcSize,Metrics/MethodLength,Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+        return nil unless @class_node
+        return nil unless @class_node.respond_to?(:cpath) && @class_node.cpath
+
         if compact_nested? && nested?
           # Mixed pattern: class App::User; class Profile; end; end
           # Inner class may also be compact nested: class App::Model; class User::Profile; end
@@ -156,6 +157,6 @@ class Igata
         deeper_child || direct_child
       end
     end
-    # rubocop:enable Metrics/ClassLength, Lint/DuplicateBranch
+    # rubocop:enable Metrics/ClassLength
   end
 end
