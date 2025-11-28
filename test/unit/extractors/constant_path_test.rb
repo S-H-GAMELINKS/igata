@@ -158,6 +158,53 @@ class Igata
         assert_equal false, result.nested
         assert_equal true, result.compact
       end
+
+      def test_no_class_or_module_with_require_only
+        code = <<~RUBY
+          require 'json'
+          require_relative 'helper'
+        RUBY
+
+        ast = Kanayago.parse(code).ast
+        result = Igata::Extractors::ConstantPath.extract(ast)
+
+        assert_nil result
+      end
+
+      def test_no_class_or_module_with_constants_only
+        code = <<~RUBY
+          CONSTANT = 'value'
+          OTHER = 123
+        RUBY
+
+        ast = Kanayago.parse(code).ast
+        result = Igata::Extractors::ConstantPath.extract(ast)
+
+        assert_nil result
+      end
+
+      def test_no_class_or_module_with_method_calls_only
+        code = <<~RUBY
+          puts 'hello'
+          Rails.application.configure do
+            config.eager_load = true
+          end
+        RUBY
+
+        ast = Kanayago.parse(code).ast
+        result = Igata::Extractors::ConstantPath.extract(ast)
+
+        assert_nil result
+      end
+
+      def test_no_class_or_module_with_empty_file
+        code = ""
+
+        ast = Kanayago.parse(code).ast
+        result = Igata::Extractors::ConstantPath.extract(ast)
+
+        assert_nil result
+      end
     end
   end
 end

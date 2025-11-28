@@ -25,6 +25,8 @@ class Igata
 
   def generate
     constant_info = Extractors::ConstantPath.extract(@ast)
+    return "" unless constant_info
+
     target_node = find_target_class_node(constant_info)
     method_infos = Extractors::MethodNames.extract(target_node)
 

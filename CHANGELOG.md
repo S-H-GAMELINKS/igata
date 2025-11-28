@@ -68,6 +68,11 @@
 - Fixed StringNode value extraction to use `ptr` instead of `val` in `BranchAnalyzer` and `ComparisonAnalyzer`
   - Kanayago 0.4.0 changed the API: string values are now stored in `ptr` field instead of `val`
   - Added integration tests for string literal comparisons and branches to prevent regression
+- Fixed `undefined method 'cpath' for nil` error when processing files without class/module definitions
+  - Updated `find_class_node` to return `nil` when no ClassNode or ModuleNode is found
+  - Added guard clause in `extract` method to handle `nil` class nodes
+  - Updated `Igata#generate` to return empty string when no class/module is found
+  - This allows Igata to gracefully handle configuration files, scripts, and other Ruby files without class definitions
 
 ## [0.2.1] - 2025-10-26
 
