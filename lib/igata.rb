@@ -12,6 +12,7 @@ require_relative "igata/extractors/branch_analyzer"
 require_relative "igata/extractors/comparison_analyzer"
 require_relative "igata/extractors/exception_analyzer"
 require_relative "igata/extractors/boundary_value_generator"
+require_relative "igata/extractors/argument_extractor"
 require_relative "igata/formatters/minitest"
 require_relative "igata/formatters/rspec"
 require_relative "igata/formatters/minitest_spec"
@@ -19,7 +20,9 @@ require_relative "igata/formatters/minitest_spec"
 class Igata
   def initialize(source, formatter: :minitest)
     @source = source
-    @ast = Kanayago.parse(source).ast
+    parse_result = Kanayago.parse(source)
+    @ast = parse_result.ast
+    @script_lines = parse_result.script_lines
     @formatter = formatter
   end
 
@@ -29,6 +32,12 @@ class Igata
 
     target_node = find_target_class_node(constant_info)
     method_infos = Extractors::MethodNames.extract(target_node)
+
+    # Add argument information to method_infos
+    method_infos = method_infos.map do |method_info|
+      arg_info = Extractors::ArgumentExtractor.extract(method_info, @script_lines)
+      method_info.with(arguments: arg_info)
+    end
 
     formatter_class = resolve_formatter(@formatter)
     formatter_class.new(constant_info, method_infos).generate

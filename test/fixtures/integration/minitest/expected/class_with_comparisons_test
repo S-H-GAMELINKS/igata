@@ -1,56 +1,46 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "test_helper"
 
-RSpec.describe Validator do
-  describe "#adult?" do
+class ValidatorTest < Minitest::Test
+  def test_adult?
     # Comparisons: >= (age >= 18)
     # Boundary value suggestions:
     #   age >= 18: [17 (below), 18 (boundary), 19 (above)]
-    it "works correctly" do
-      pending "Not implemented yet"
-    end
+    skip "Not implemented yet"
   end
 
-  describe "#minor?" do
+  def test_minor?
     # Comparisons: < (age < 18)
     # Boundary value suggestions:
     #   age < 18: [17 (below), 18 (boundary)]
-    it "works correctly" do
-      pending "Not implemented yet"
-    end
+    skip "Not implemented yet"
   end
 
-  describe "#equal_check" do
+  def test_equal_check
     # Arguments:
     #   - value (required)
     # Comparisons: == (value == 100)
     # Boundary value suggestions:
     #   value == 100: [99 (not equal), 100 (equal), 101 (not equal)]
-    it "works correctly" do
-      pending "Not implemented yet"
-    end
+    skip "Not implemented yet"
   end
 
-  describe "#valid_range?" do
+  def test_valid_range?
     # Comparisons: >= (value >= 0), <= (value <= 150)
     # Boundary value suggestions:
     #   value >= 0: [-1 (below), 0 (boundary), 1 (above)]
     #   value <= 150: [149 (below), 150 (boundary), 151 (above)]
-    it "works correctly" do
-      pending "Not implemented yet"
-    end
+    skip "Not implemented yet"
   end
 
-  describe "#check_status" do
+  def test_check_status
     # Arguments:
     #   - score (required)
     # Branches: if (score > 80)
     # Comparisons: > (score > 80)
     # Boundary value suggestions:
     #   score > 80: [80 (boundary), 81 (above)]
-    it "works correctly" do
-      pending "Not implemented yet"
-    end
+    skip "Not implemented yet"
   end
 end

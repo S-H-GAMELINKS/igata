@@ -1,0 +1,36 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+class UserTest < Minitest::Test
+  def test_initialize
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
+    skip "Not implemented yet"
+  end
+
+  def test_greet
+    # Arguments:
+    #   - message (optional, default: "Hello")
+    skip "Not implemented yet"
+  end
+
+  def test_create
+    # Arguments:
+    #   - verified: (keyword, default: false)
+    skip "Not implemented yet"
+  end
+
+  def test_process
+    # Arguments:
+    #   - *args (variable length)
+    #   - **kwargs (keyword variable length)
+    #   - &block (block)
+    skip "Not implemented yet"
+  end
+
+  def test_simple
+    skip "Not implemented yet"
+  end
+end

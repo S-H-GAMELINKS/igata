@@ -1,0 +1,47 @@
+# frozen_string_literal: true
+
+require "test_helper"
+require "minitest/spec"
+
+describe User do
+  describe "#initialize" do
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#greet" do
+    # Arguments:
+    #   - message (optional, default: "Hello")
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#create" do
+    # Arguments:
+    #   - verified: (keyword, default: false)
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#process" do
+    # Arguments:
+    #   - *args (variable length)
+    #   - **kwargs (keyword variable length)
+    #   - &block (block)
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+
+  describe "#simple" do
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
+  end
+end

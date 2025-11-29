@@ -4,6 +4,8 @@ require "spec_helper"
 
 RSpec.describe RoleChecker do
   describe "#initialize" do
+    # Arguments:
+    #   - role (required)
     it "works correctly" do
       pending "Not implemented yet"
     end

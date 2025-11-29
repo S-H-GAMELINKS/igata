@@ -4,14 +4,20 @@ require "test_helper"
 
 class PaymentProcessorTest < Minitest::Test
   def test_process_payment
+    # Arguments:
+    #   - amount (required)
     # Branches: if (amount <= 0)
     # Comparisons: <= (amount <= 0)
+    # Boundary value suggestions:
+    #   amount <= 0: [-1 (below), 0 (boundary), 1 (above)]
     # Exceptions raised: ArgumentError ("Invalid amount")
     # Exceptions rescued: PaymentError
     skip "Not implemented yet"
   end
 
   def test_validate_user
+    # Arguments:
+    #   - user (required)
     # Branches: unless (user), unless (user.exists?)
     # Exceptions raised: StandardError ("User is nil"), StandardError ("User not found")
     skip "Not implemented yet"

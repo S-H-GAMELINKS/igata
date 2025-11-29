@@ -4,12 +4,16 @@ require "spec_helper"
 
 RSpec.describe FileProcessor do
   describe "#process" do
+    # Arguments:
+    #   - file (required)
     it "works correctly" do
       pending "Not implemented yet"
     end
   end
 
   describe "#validate_file" do
+    # Arguments:
+    #   - file (required)
     # Branches: unless (file.exist?)
     # Exceptions raised: ArgumentError
     it "works correctly" do
@@ -18,6 +22,8 @@ RSpec.describe FileProcessor do
   end
 
   describe "#compress" do
+    # Arguments:
+    #   - file (required)
     it "works correctly" do
       pending "Not implemented yet"
     end

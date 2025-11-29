@@ -4,6 +4,9 @@ require "test_helper"
 
 class App::Model::User::ProfileTest < Minitest::Test
   def test_initialize
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
     skip "Not implemented yet"
   end
 

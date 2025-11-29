@@ -2,6 +2,13 @@
 
 ### Added
 
+- Method argument information in generated tests:
+  - Test methods now display argument information for each method
+  - Shows argument names, types, and default values
+  - Supports all argument types: required, optional, keyword, required keyword, variable length (*args), keyword variable length (**kwargs), and block (&block)
+  - Arguments are displayed at the top of test methods before other analysis information
+  - Example: `# Arguments: - name (required), - age (optional, default: 18)`
+  - Fully compatible with all formatters (Minitest, RSpec, Minitest Spec)
 - Integration test tasks for real-world Rails applications
   - `rake integration:setup`: Clone test repositories (Rails, Discourse, Mastodon, GitLab)
   - `rake integration:test`: Run Igata against all Ruby files in repositories

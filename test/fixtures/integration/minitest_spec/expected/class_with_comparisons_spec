@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "test_helper"
+require "minitest/spec"
 
-RSpec.describe Validator do
+describe Validator do
   describe "#adult?" do
     # Comparisons: >= (age >= 18)
     # Boundary value suggestions:
     #   age >= 18: [17 (below), 18 (boundary), 19 (above)]
     it "works correctly" do
-      pending "Not implemented yet"
+      skip "Not implemented yet"
     end
   end
 
@@ -17,7 +18,7 @@ RSpec.describe Validator do
     # Boundary value suggestions:
     #   age < 18: [17 (below), 18 (boundary)]
     it "works correctly" do
-      pending "Not implemented yet"
+      skip "Not implemented yet"
     end
   end
 
@@ -28,7 +29,7 @@ RSpec.describe Validator do
     # Boundary value suggestions:
     #   value == 100: [99 (not equal), 100 (equal), 101 (not equal)]
     it "works correctly" do
-      pending "Not implemented yet"
+      skip "Not implemented yet"
     end
   end
 
@@ -38,7 +39,7 @@ RSpec.describe Validator do
     #   value >= 0: [-1 (below), 0 (boundary), 1 (above)]
     #   value <= 150: [149 (below), 150 (boundary), 151 (above)]
     it "works correctly" do
-      pending "Not implemented yet"
+      skip "Not implemented yet"
     end
   end
 
@@ -50,7 +51,7 @@ RSpec.describe Validator do
     # Boundary value suggestions:
     #   score > 80: [80 (boundary), 81 (above)]
     it "works correctly" do
-      pending "Not implemented yet"
+      skip "Not implemented yet"
     end
   end
 end

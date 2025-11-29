@@ -5,8 +5,12 @@ require "minitest/spec"
 
 describe PaymentProcessor do
   describe "#process_payment" do
+    # Arguments:
+    #   - amount (required)
     # Branches: if (amount <= 0)
     # Comparisons: <= (amount <= 0)
+    # Boundary value suggestions:
+    #   amount <= 0: [-1 (below), 0 (boundary), 1 (above)]
     # Exceptions raised: ArgumentError ("Invalid amount")
     # Exceptions rescued: PaymentError
     it "works correctly" do
@@ -15,6 +19,8 @@ describe PaymentProcessor do
   end
 
   describe "#validate_user" do
+    # Arguments:
+    #   - user (required)
     # Branches: unless (user), unless (user.exists?)
     # Exceptions raised: StandardError ("User is nil"), StandardError ("User not found")
     it "works correctly" do

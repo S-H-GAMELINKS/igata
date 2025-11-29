@@ -4,18 +4,24 @@ require "spec_helper"
 
 RSpec.describe User::Updator do
   describe "#initialize" do
+    # Arguments:
+    #   - user (required)
     it "works correctly" do
       pending "Not implemented yet"
     end
   end
 
   describe "#update_name" do
+    # Arguments:
+    #   - name (required)
     it "works correctly" do
       pending "Not implemented yet"
     end
   end
 
   describe "#update_email" do
+    # Arguments:
+    #   - email (required)
     it "works correctly" do
       pending "Not implemented yet"
     end
