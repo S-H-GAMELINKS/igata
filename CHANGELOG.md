@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.3.0] - 2025-11-29
+
 ### Added
 
 - Method argument information in generated tests:
