@@ -4,6 +4,8 @@ require "spec_helper"
 
 RSpec.describe Calculator do
   describe "#check" do
+    # Arguments:
+    #   - value (required)
     # Branches: if (value > 0)
     # Comparisons: > (value > 0)
     # Boundary value suggestions:
@@ -14,6 +16,8 @@ RSpec.describe Calculator do
   end
 
   describe "#validate" do
+    # Arguments:
+    #   - user (required)
     # Branches: unless (user.valid?)
     # Exceptions raised: StandardError ("Invalid user")
     it "works correctly" do
@@ -22,6 +26,8 @@ RSpec.describe Calculator do
   end
 
   describe "#status" do
+    # Arguments:
+    #   - code (required)
     # Branches: case (code)
     it "works correctly" do
       pending "Not implemented yet"

@@ -5,6 +5,9 @@ require "minitest/spec"
 
 describe User do
   describe "#initialize" do
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
     it "works correctly" do
       skip "Not implemented yet"
     end

@@ -1,34 +1,43 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "minitest/spec"
 
-class StatusCheckerTest < Minitest::Test
-  def test_initialize
+describe StatusChecker do
+  describe "#initialize" do
     # Arguments:
     #   - status (required)
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 
-  def test_active?
+  describe "#active?" do
     # Comparisons: == (@status == "active")
     # Boundary value suggestions:
     #   @status == "active": [equal: "active", not equal: different string]
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 
-  def test_pending?
+  describe "#pending?" do
     # Comparisons: == (@status == "pending")
     # Boundary value suggestions:
     #   @status == "pending": [equal: "pending", not equal: different string]
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 
-  def test_check_type
+  describe "#check_type" do
     # Arguments:
     #   - type (required)
     # Comparisons: != (type != "invalid")
     # Boundary value suggestions:
     #   type != "invalid": [equal: "invalid", not equal: different string]
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 end

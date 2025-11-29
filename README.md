@@ -76,11 +76,16 @@ require "test_helper"
 
 class UserTest < Minitest::Test
   def test_initialize
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
     skip "Not implemented yet"
   end
 
   def test_adult?
     # Comparisons: >= (@age >= 18)
+    # Boundary value suggestions:
+    #   @age >= 18: [17 (below), 18 (boundary), 19 (above)]
     skip "Not implemented yet"
   end
 end
@@ -95,6 +100,9 @@ require "spec_helper"
 
 RSpec.describe User do
   describe "#initialize" do
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
     it "works correctly" do
       pending "Not implemented yet"
     end
@@ -102,6 +110,8 @@ RSpec.describe User do
 
   describe "#adult?" do
     # Comparisons: >= (@age >= 18)
+    # Boundary value suggestions:
+    #   @age >= 18: [17 (below), 18 (boundary), 19 (above)]
     it "works correctly" do
       pending "Not implemented yet"
     end
@@ -119,6 +129,9 @@ require "minitest/spec"
 
 describe User do
   describe "#initialize" do
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
     it "works correctly" do
       skip "Not implemented yet"
     end
@@ -126,6 +139,8 @@ describe User do
 
   describe "#adult?" do
     # Comparisons: >= (@age >= 18)
+    # Boundary value suggestions:
+    #   @age >= 18: [17 (below), 18 (boundary), 19 (above)]
     it "works correctly" do
       skip "Not implemented yet"
     end
@@ -166,10 +181,12 @@ end
 
 ## Features
 
+- ✅ **Argument Analysis**: Displays method argument information (types, default values)
 - ✅ **Branch Analysis**: Detects `if`, `elsif`, `else`, `unless`, and `case` statements
 - ✅ **Comparison Analysis**: Detects comparison operators (`>=`, `<=`, `>`, `<`, `==`, `!=`)
+- ✅ **Boundary Value Suggestions**: Automatically suggests boundary test values for comparisons
 - ✅ **Exception Analysis**: Detects `raise` statements and `rescue` clauses
-- ✅ **Multiple Formatters**: Supports Minitest and RSpec test generation
+- ✅ **Multiple Formatters**: Supports Minitest, RSpec, and Minitest Spec test generation
 - ✅ **AST-based**: Uses Kanayago parser for accurate Ruby code analysis
 
 ## Development

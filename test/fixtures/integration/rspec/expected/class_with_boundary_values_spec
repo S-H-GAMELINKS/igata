@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require "spec_helper"
 
-RSpec.describe Calculator, type: :model do
+RSpec.describe Calculator do
   describe "#validate_age" do
+    # Arguments:
+    #   - age (required)
+    # Branches: if (age < 18), if (and), if (age >= 65)
     # Comparisons: < (age < 18), >= (age >= 18), < (age < 65), >= (age >= 65)
     # Boundary value suggestions:
     #   age < 18: [17 (below), 18 (boundary)]
@@ -16,6 +19,9 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "#check_range" do
+    # Arguments:
+    #   - value (required)
+    # Branches: if (or)
     # Comparisons: < (value < 0), > (value > 100)
     # Boundary value suggestions:
     #   value < 0: [-1 (below), 0 (boundary)]
@@ -26,6 +32,9 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "#check_price" do
+    # Arguments:
+    #   - price (required)
+    # Branches: if (price == 0)
     # Comparisons: == (price == 0)
     # Boundary value suggestions:
     #   price == 0: [-1 (not equal), 0 (equal), 1 (not equal)]
@@ -35,6 +44,9 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "#check_name" do
+    # Arguments:
+    #   - name (required)
+    # Branches: if (name == "Alice")
     # Comparisons: == (name == "Alice")
     # Boundary value suggestions:
     #   name == "Alice": [equal: "Alice", not equal: different string]
@@ -44,6 +56,9 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "#check_status" do
+    # Arguments:
+    #   - status (required)
+    # Branches: if (status == :active)
     # Comparisons: == (status == :active)
     # Boundary value suggestions:
     #   status == :active: [symbol check: test with [":active", ":other_symbol"]]
@@ -53,6 +68,9 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "#check_flag" do
+    # Arguments:
+    #   - enabled (required)
+    # Branches: if (enabled == true)
     # Comparisons: == (enabled == true)
     # Boundary value suggestions:
     #   enabled == true: [boolean check: test with [true, false]]
@@ -62,6 +80,9 @@ RSpec.describe Calculator, type: :model do
   end
 
   describe "#check_nil" do
+    # Arguments:
+    #   - value (required)
+    # Branches: if (value == nil)
     # Comparisons: == (value == nil)
     # Boundary value suggestions:
     #   value == nil: [nil check: test with [nil, "some_value"]]

@@ -4,6 +4,9 @@ require "test_helper"
 
 class CalculatorTest < Minitest::Test
   def test_validate_age
+    # Arguments:
+    #   - age (required)
+    # Branches: if (age < 18), if (and), if (age >= 65)
     # Comparisons: < (age < 18), >= (age >= 18), < (age < 65), >= (age >= 65)
     # Boundary value suggestions:
     #   age < 18: [17 (below), 18 (boundary)]
@@ -14,6 +17,9 @@ class CalculatorTest < Minitest::Test
   end
 
   def test_check_range
+    # Arguments:
+    #   - value (required)
+    # Branches: if (or)
     # Comparisons: < (value < 0), > (value > 100)
     # Boundary value suggestions:
     #   value < 0: [-1 (below), 0 (boundary)]
@@ -22,6 +28,9 @@ class CalculatorTest < Minitest::Test
   end
 
   def test_check_price
+    # Arguments:
+    #   - price (required)
+    # Branches: if (price == 0)
     # Comparisons: == (price == 0)
     # Boundary value suggestions:
     #   price == 0: [-1 (not equal), 0 (equal), 1 (not equal)]
@@ -29,6 +38,9 @@ class CalculatorTest < Minitest::Test
   end
 
   def test_check_name
+    # Arguments:
+    #   - name (required)
+    # Branches: if (name == "Alice")
     # Comparisons: == (name == "Alice")
     # Boundary value suggestions:
     #   name == "Alice": [equal: "Alice", not equal: different string]
@@ -36,6 +48,9 @@ class CalculatorTest < Minitest::Test
   end
 
   def test_check_status
+    # Arguments:
+    #   - status (required)
+    # Branches: if (status == :active)
     # Comparisons: == (status == :active)
     # Boundary value suggestions:
     #   status == :active: [symbol check: test with [":active", ":other_symbol"]]
@@ -43,6 +58,9 @@ class CalculatorTest < Minitest::Test
   end
 
   def test_check_flag
+    # Arguments:
+    #   - enabled (required)
+    # Branches: if (enabled == true)
     # Comparisons: == (enabled == true)
     # Boundary value suggestions:
     #   enabled == true: [boolean check: test with [true, false]]
@@ -50,6 +68,9 @@ class CalculatorTest < Minitest::Test
   end
 
   def test_check_nil
+    # Arguments:
+    #   - value (required)
+    # Branches: if (value == nil)
     # Comparisons: == (value == nil)
     # Boundary value suggestions:
     #   value == nil: [nil check: test with [nil, "some_value"]]

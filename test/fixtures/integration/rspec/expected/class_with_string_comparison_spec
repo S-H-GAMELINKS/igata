@@ -4,6 +4,8 @@ require "spec_helper"
 
 RSpec.describe StatusChecker do
   describe "#initialize" do
+    # Arguments:
+    #   - status (required)
     it "works correctly" do
       pending "Not implemented yet"
     end
@@ -28,6 +30,8 @@ RSpec.describe StatusChecker do
   end
 
   describe "#check_type" do
+    # Arguments:
+    #   - type (required)
     # Comparisons: != (type != "invalid")
     # Boundary value suggestions:
     #   type != "invalid": [equal: "invalid", not equal: different string]

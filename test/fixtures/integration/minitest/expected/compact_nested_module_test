@@ -4,14 +4,20 @@ require "test_helper"
 
 class User::UpdatorTest < Minitest::Test
   def test_initialize
+    # Arguments:
+    #   - user (required)
     skip "Not implemented yet"
   end
 
   def test_update_name
+    # Arguments:
+    #   - name (required)
     skip "Not implemented yet"
   end
 
   def test_update_email
+    # Arguments:
+    #   - email (required)
     skip "Not implemented yet"
   end
 end

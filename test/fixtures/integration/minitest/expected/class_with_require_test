@@ -4,16 +4,22 @@ require "test_helper"
 
 class FileProcessorTest < Minitest::Test
   def test_process
+    # Arguments:
+    #   - file (required)
     skip "Not implemented yet"
   end
 
   def test_validate_file
+    # Arguments:
+    #   - file (required)
     # Branches: unless (file.exist?)
     # Exceptions raised: ArgumentError
     skip "Not implemented yet"
   end
 
   def test_compress
+    # Arguments:
+    #   - file (required)
     skip "Not implemented yet"
   end
 end

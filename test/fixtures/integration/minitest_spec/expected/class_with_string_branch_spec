@@ -1,32 +1,41 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "minitest/spec"
 
-class RoleCheckerTest < Minitest::Test
-  def test_initialize
+describe RoleChecker do
+  describe "#initialize" do
     # Arguments:
     #   - role (required)
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 
-  def test_admin_action
+  describe "#admin_action" do
     # Branches: if (@role == "admin")
     # Comparisons: == (@role == "admin")
     # Boundary value suggestions:
     #   @role == "admin": [equal: "admin", not equal: different string]
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 
-  def test_guest_message
+  describe "#guest_message" do
     # Branches: unless (@role == "guest")
     # Comparisons: == (@role == "guest")
     # Boundary value suggestions:
     #   @role == "guest": [equal: "guest", not equal: different string]
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 
-  def test_role_name
+  describe "#role_name" do
     # Branches: case (@role)
-    skip "Not implemented yet"
+    it "works correctly" do
+      skip "Not implemented yet"
+    end
   end
 end

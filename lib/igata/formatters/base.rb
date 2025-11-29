@@ -42,6 +42,7 @@ class Igata
           comparisons = method_info.comparisons
           exceptions = method_info.exceptions
           boundary_values = method_info.boundary_values
+          arguments = method_info.arguments
           ERB.new(File.read(template_path("method")), trim_mode: "<>").result(binding)
         end
       end

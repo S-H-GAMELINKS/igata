@@ -4,6 +4,9 @@ require "spec_helper"
 
 RSpec.describe User::Profile do
   describe "#initialize" do
+    # Arguments:
+    #   - name (required)
+    #   - age (required)
     it "works correctly" do
       pending "Not implemented yet"
     end

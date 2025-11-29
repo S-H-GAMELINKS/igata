@@ -3,7 +3,7 @@
 require "test_helper"
 require "minitest/spec"
 
-describe User::Profile do
+describe App::User::Profile do
   describe "#initialize" do
     # Arguments:
     #   - name (required)

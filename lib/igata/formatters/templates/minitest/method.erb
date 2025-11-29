@@ -1,4 +1,24 @@
   def test_<%= method_name %>
+<% if arguments && !arguments.args.empty? %>
+    # Arguments:
+<%   arguments.args.each do |arg| %>
+<%     if arg.type == :required %>
+    #   - <%= arg.name %> (required)
+<%     elsif arg.type == :optional %>
+    #   - <%= arg.name %> (optional, default: <%= arg.default %>)
+<%     elsif arg.type == :keyword %>
+    #   - <%= arg.name %>: (keyword, default: <%= arg.default %>)
+<%     elsif arg.type == :required_keyword %>
+    #   - <%= arg.name %>: (required keyword)
+<%     elsif arg.type == :rest %>
+    #   - *<%= arg.name %> (variable length)
+<%     elsif arg.type == :keyrest %>
+    #   - **<%= arg.name %> (keyword variable length)
+<%     elsif arg.type == :block %>
+    #   - &<%= arg.name %> (block)
+<%     end %>
+<%   end %>
+<% end %>
 <% if branches && !branches.empty? %>
     # Branches: <%= branches.map { |b| b.condition ? "#{b.type} (#{b.condition})" : b.type.to_s }.join(", ") %>
 <% end %>

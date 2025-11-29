@@ -3,26 +3,28 @@
 require "test_helper"
 require "minitest/spec"
 
-describe User::Profile do
-  describe "#initialize" do
+describe FileProcessor do
+  describe "#process" do
     # Arguments:
-    #   - name (required)
-    #   - age (required)
+    #   - file (required)
     it "works correctly" do
       skip "Not implemented yet"
     end
   end
 
-  describe "#adult?" do
-    # Comparisons: >= (@age >= 18)
-    # Boundary value suggestions:
-    #   @age >= 18: [17 (below), 18 (boundary), 19 (above)]
+  describe "#validate_file" do
+    # Arguments:
+    #   - file (required)
+    # Branches: unless (file.exist?)
+    # Exceptions raised: ArgumentError
     it "works correctly" do
       skip "Not implemented yet"
     end
   end
 
-  describe "#greeting" do
+  describe "#compress" do
+    # Arguments:
+    #   - file (required)
     it "works correctly" do
       skip "Not implemented yet"
     end

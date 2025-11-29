@@ -13,9 +13,10 @@ class Igata
       :branches,        # Array of BranchInfo (default: [])
       :comparisons,     # Array of ComparisonInfo (default: [])
       :exceptions,      # Array of ExceptionInfo (default: [])
-      :boundary_values  # Array of BoundaryValueInfo (default: [])
+      :boundary_values, # Array of BoundaryValueInfo (default: [])
+      :arguments        # ArgumentInfo (default: nil)
     ) do
-      def initialize(name:, branches: [], comparisons: [], exceptions: [], boundary_values: [])
+      def initialize(name:, branches: [], comparisons: [], exceptions: [], boundary_values: [], arguments: nil)
         super
       end
     end
@@ -44,5 +45,19 @@ class Igata
       :test_values,     # Array of test values (e.g., [17, 18, 19])
       :description      # description string (e.g., "Boundary: 17 (below), 18 (boundary), 19 (above)")
     )
+
+    ArgumentInfo = Data.define(
+      :args # Array of ArgDetail
+    )
+
+    ArgDetail = Data.define(
+      :name,     # "name", "age", "verified", "args", etc.
+      :type,     # :required, :optional, :keyword, :rest, :keyrest, :block
+      :default   # default value (for optional/keyword arguments)
+    ) do
+      def initialize(name:, type:, default: nil)
+        super
+      end
+    end
   end
 end
