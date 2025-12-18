@@ -24,7 +24,7 @@ GEM
       language_server-protocol (~> 3.17.0)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
-    minitest (5.26.2)
+    minitest (5.27.0)
     parallel (1.27.0)
     parser (3.3.10.0)
       ast (~> 2.4.1)
@@ -82,7 +82,7 @@ DEPENDENCIES
   igata!
   irb
   kanayago (~> 0.6.1)
-  minitest (~> 5.26)
+  minitest (~> 5.27)
   rake (~> 13.3)
   rubocop (~> 1.81)
   simplecov (~> 0.22)
@@ -100,7 +100,7 @@ CHECKSUMS
   kanayago (0.6.1) sha256=670d1eada41ebdf2c5407ff27ed3469b7934a61a64613d7bcb08fad5707f4730
   language_server-protocol (3.17.0.5) sha256=fd1e39a51a28bf3eec959379985a72e296e9f9acfce46f6a79d31ca8760803cc
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
-  minitest (5.26.2) sha256=f021118a6185b9ba9f5af71f2ba103ad770c75afde9f2ab8da512677c550cde3
+  minitest (5.27.0) sha256=2d3b17f8a36fe7801c1adcffdbc38233b938eb0b4966e97a6739055a45fa77d5
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   parser (3.3.10.0) sha256=ce3587fa5cc55a88c4ba5b2b37621b3329aadf5728f9eafa36bbd121462aabd6
   pp (0.6.3) sha256=2951d514450b93ccfeb1df7d021cae0da16e0a7f95ee1e2273719669d0ab9df6
