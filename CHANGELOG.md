@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.4.0] - 2026-01-01
+
 ### Added
 
 - Ruby 4.0 support
