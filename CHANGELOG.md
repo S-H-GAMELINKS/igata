@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Added
+
+- Ruby 4.0 support
+
 ## [0.3.0] - 2025-11-29
 
 ### Added
