@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     igata (0.4.0)
-      kanayago (~> 0.7.0)
+      kanayago (>= 0.7, < 0.9)
 
 GEM
   remote: https://rubygems.org/
@@ -20,7 +20,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.18.0)
-    kanayago (0.7.0)
+    kanayago (0.8.0)
       language_server-protocol (~> 3.17.0)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
@@ -82,7 +82,7 @@ DEPENDENCIES
   debug (~> 1.11)
   igata!
   irb
-  kanayago (~> 0.7.0)
+  kanayago (~> 0.8.0)
   minitest (~> 6.0)
   rake (~> 13.3)
   rubocop (~> 1.82)
@@ -98,7 +98,7 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.16.0) sha256=2abe56c9ac947cdcb2f150572904ba798c1e93c890c256f8429981a7675b0806
   json (2.18.0) sha256=b10506aee4183f5cf49e0efc48073d7b75843ce3782c68dbeb763351c08fd505
-  kanayago (0.7.0) sha256=b4fdd59eda6b9ddc37eb287c33ebd64b150f5d2f8005d822a030a7dc7bb93b08
+  kanayago (0.8.0) sha256=447e538f112e0a11fee013f5dd1a5f6e12cf9265c96e21a4a2c0006d54f6e57f
   language_server-protocol (3.17.0.5) sha256=fd1e39a51a28bf3eec959379985a72e296e9f9acfce46f6a79d31ca8760803cc
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
   minitest (6.0.1) sha256=7854c74f48e2e975969062833adc4013f249a4b212f5e7b9d5c040bf838d54bb
