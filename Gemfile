@@ -14,6 +14,6 @@ gem "rubocop", "~> 1.82"
 
 gem "debug", "~> 1.11"
 
-gem "kanayago", "~> 0.7.0"
+gem "kanayago", "~> 0.9.0"
 
 gem "simplecov", "~> 0.22", require: false
